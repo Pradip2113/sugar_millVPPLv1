@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-05-09 15:47:03.774401",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sugar",
+  "column_break_7dmro",
+  "bagasse",
+  "section_break_k061d",
+  "molasses",
+  "column_break_xchsx",
+  "ethanol"
+ ],
+ "fields": [
+  {
+   "fieldname": "sugar",
+   "fieldtype": "Data",
+   "label": "Sugar"
+  },
+  {
+   "fieldname": "bagasse",
+   "fieldtype": "Data",
+   "label": "Bagasse"
+  },
+  {
+   "fieldname": "molasses",
+   "fieldtype": "Data",
+   "label": "Molasses"
+  },
+  {
+   "fieldname": "ethanol",
+   "fieldtype": "Data",
+   "label": "Ethanol"
+  },
+  {
+   "fieldname": "column_break_7dmro",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_k061d",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xchsx",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-05-09 15:51:11.780965",
+ "modified_by": "Administrator",
+ "module": "Sugar Mill",
+ "name": "Sales Invoice Document Numbering Counter",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

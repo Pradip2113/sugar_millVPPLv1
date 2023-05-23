@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-05-08 13:19:10.320354",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_date",
+  "column_break_mm46x",
+  "to_date",
+  "section_break_tke7g",
+  "show_list",
+  "column_break_qt8b3",
+  "select_all",
+  "section_break_qw2wm",
+  "farmer_table",
+  "section_break_63tbl",
+  "do_billing",
+  "calculation_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "farmer_table",
+   "fieldtype": "Table",
+   "label": "Farmer Table",
+   "options": "Child Farmer Cane Bill"
+  },
+  {
+   "fieldname": "show_list",
+   "fieldtype": "Button",
+   "label": "Show List"
+  },
+  {
+   "fieldname": "column_break_mm46x",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_tke7g",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_qt8b3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_qw2wm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "select_all",
+   "fieldtype": "Button",
+   "label": "Select All"
+  },
+  {
+   "fieldname": "section_break_63tbl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "do_billing",
+   "fieldtype": "Button",
+   "label": "Do Billing"
+  },
+  {
+   "fieldname": "calculation_table",
+   "fieldtype": "Table",
+   "label": "Calculation Table",
+   "options": "Child Calculation Cane Bill"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-17 11:36:51.105354",
+ "modified_by": "Administrator",
+ "module": "Sugar Mill",
+ "name": "Cane Billing",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

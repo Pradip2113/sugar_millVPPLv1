@@ -1,0 +1,388 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-03-22 17:34:13.241753",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "h_and_t_contract_section",
+  "season",
+  "column_break_3",
+  "plant",
+  "column_break_znptl",
+  "company_name",
+  "contract_reference",
+  "column_break_4",
+  "contract_date",
+  "column_break_6",
+  "contract_type",
+  "column_break_4yb36",
+  "advance",
+  "h_and_t_group_section",
+  "h_and_t_group",
+  "contract_status",
+  "column_break_13",
+  "transporter_code",
+  "harvester_code",
+  "column_break_16",
+  "transporter_name",
+  "harvester_name",
+  "column_break_19",
+  "transportor_commission",
+  "harvester_retantion_",
+  "tds",
+  "data_22",
+  "vehicle_type",
+  "data_25",
+  "vehicle_no",
+  "column_break_libxj",
+  "trolly_1",
+  "column_break_dowzb",
+  "trolly_2",
+  "column_break_8jlj3",
+  "total_vehicle",
+  "data_35",
+  "gang_type",
+  "data_38",
+  "mukadam_name",
+  "data_40",
+  "mobile_no",
+  "column_break_45",
+  "village",
+  "data_42",
+  "taluka",
+  "data_49",
+  "district",
+  "data_44",
+  "state",
+  "data_46",
+  "labour_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "h_and_t_contract_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "2023-24",
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Season (\u0939\u0902\u0917\u093e\u092e)",
+   "options": "Season"
+  },
+  {
+   "default": "Bedkihal",
+   "fieldname": "plant",
+   "fieldtype": "Link",
+   "label": "Plant Name (\u092f\u0941\u0928\u093f\u091f\u091a\u0947 \u0928\u093e\u0935)",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_reference",
+   "fieldtype": "Data",
+   "label": "Agreement No.(\u0915\u0930\u093e\u0930 \u0915\u094d\u0930\u092e\u093e\u0902\u0915)"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "contract_date",
+   "fieldtype": "Date",
+   "label": "Contract Date (\u0915\u0930\u093e\u0930\u093e\u091a\u0940 \u0924\u093e\u0930\u0940\u0916)"
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Link",
+   "label": "Contract Type (\u0915\u0930\u093e\u0930\u093e\u091a\u093e \u092a\u094d\u0930\u0915\u093e\u0930)",
+   "options": "Contract Type"
+  },
+  {
+   "fieldname": "h_and_t_group_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "h_and_t_group",
+   "fieldtype": "Link",
+   "label": "H and T Group Leader (\u090f\u091a \u0906\u0923\u093f \u091f\u0940 \u0917\u091f)",
+   "options": "H and T Group"
+  },
+  {
+   "fieldname": "contract_status",
+   "fieldtype": "Select",
+   "label": "Contract Status (\u0915\u0930\u093e\u0930 \u0938\u094d\u0925\u093f\u0924\u0940)",
+   "options": "New (\u0928\u0935\u0940\u0928)\nReported\nCancel (\u0930\u0926\u094d\u0926)"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "transporter_code",
+   "fieldtype": "Link",
+   "label": "Transporter Code (\u0935\u093e\u0939\u0924\u0942\u0915\u0926\u093e\u0930 \u0915\u094b\u0921)",
+   "options": "Farmer List"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": ".",
+   "fetch_from": "transporter_code.supplier_name",
+   "fieldname": "transporter_name",
+   "fieldtype": "Data",
+   "label": "Transporter Name (\u0935\u093e\u0939\u0924\u0942\u0915\u0926\u093e\u0930\u093e\u091a\u0947 \u0928\u093e\u0935)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "10",
+   "fieldname": "transportor_commission",
+   "fieldtype": "Float",
+   "label": "Security Deposit(%)",
+   "precision": "1"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "harvester_code",
+   "fieldtype": "Link",
+   "label": "Harvester Code (\u0915\u094b\u0921)",
+   "options": "Farmer List"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": ".",
+   "fetch_from": "harvester_code.supplier_name",
+   "fieldname": "harvester_name",
+   "fieldtype": "Data",
+   "label": "Harvester Name (\u0924\u094b\u0921\u0940\u0915\u0930\u093e\u091a\u0947 \u0928\u093e\u0935)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "harvester_retantion_",
+   "fieldtype": "Float",
+   "label": "Commision (%)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "data_22",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "data_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_38",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "data_40",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_42",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_46",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "gang_type",
+   "fieldtype": "Link",
+   "label": "Gang Type (\u091f\u094b\u0933\u0940 \u092a\u094d\u0930\u0915\u093e\u0930)",
+   "options": "Gang Type"
+  },
+  {
+   "fieldname": "mukadam_name",
+   "fieldtype": "Data",
+   "label": "Mukadam Name (\u092e\u0941\u0915\u093e\u0926\u092e)"
+  },
+  {
+   "fetch_from": "mukadam_name.village",
+   "fieldname": "village",
+   "fieldtype": "Data",
+   "label": "Village (\u0917\u093e\u0935)"
+  },
+  {
+   "fetch_from": "mukadam_name.mobile_no",
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile(\u092e\u094b\u092c\u093e\u0908\u0932)"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "labour_details",
+   "fieldtype": "Table",
+   "label": "Labour Details (\u0915\u093e\u092e\u0917\u093e\u0930 \u0924\u092a\u0936\u0940\u0932)",
+   "options": "Labour Details"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Company Name",
+   "options": "Company"
+  },
+  {
+   "default": "0",
+   "fieldname": "tds",
+   "fieldtype": "Check",
+   "label": "TDS"
+  },
+  {
+   "fetch_from": "mukadam_name.taluka",
+   "fieldname": "taluka",
+   "fieldtype": "Data",
+   "label": "Taluka (\u0924\u093e\u0932\u0941\u0915\u093e)"
+  },
+  {
+   "fetch_from": "mukadam_name.district",
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District (\u091c\u093f\u0932\u094d\u0939\u093e)"
+  },
+  {
+   "default": " -",
+   "fetch_from": "mukadam_name.state",
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "data_49",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dowzb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "vehicle_contractor_code.total_numbers_of_vehicle",
+   "fieldname": "total_vehicle",
+   "fieldtype": "Float",
+   "label": "Total Vehicle",
+   "precision": "0"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "vehicle_type",
+   "fieldtype": "Link",
+   "label": "Vehicle Type",
+   "options": "Vehicle Type"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "H and T Contract",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.vehicle_type!='Bulk Cart';\n// eval:doc.vehicle_type=='Tractor Cart';\n// eval:doc.vehicle_type!='Tractor'&& doc.vehicle_type!='Tracto     && doc.vehicle_type=='Tractor Cart'\n",
+   "fieldname": "vehicle_no",
+   "fieldtype": "Data",
+   "label": "Vehicle No"
+  },
+  {
+   "fieldname": "column_break_8jlj3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.vehicle_type!='Bulk Cart';",
+   "fieldname": "trolly_1",
+   "fieldtype": "Data",
+   "label": "Trolly 1"
+  },
+  {
+   "depends_on": "eval:doc.vehicle_type!='Bulk Cart';",
+   "fieldname": "trolly_2",
+   "fieldtype": "Data",
+   "label": "Trolly 2"
+  },
+  {
+   "fieldname": "advance",
+   "fieldtype": "Select",
+   "label": "Advance",
+   "options": "YES\nNO"
+  },
+  {
+   "fieldname": "column_break_znptl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4yb36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_libxj",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-05-22 14:46:44.428255",
+ "modified_by": "Administrator",
+ "module": "Sugar Mill",
+ "name": "H and T Contract",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
