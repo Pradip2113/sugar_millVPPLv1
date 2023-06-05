@@ -1,15 +1,6 @@
 {
- "charts": [
-  {
-   "chart_name": "Cane Registration",
-   "label": "Cane Registration"
-  },
-  {
-   "chart_name": "Farmer Registration",
-   "label": "Farmer Registration"
-  }
- ],
- "content": "[{\"id\":\"UO17_Hw5xI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Farmer Registration\",\"col\":3}},{\"id\":\"erKHZTVldD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cane Registration \",\"col\":3}},{\"id\":\"4faUMzZHry\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"H and T Contract\",\"col\":3}},{\"id\":\"qfA5wKIbwH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Agriculture Development\",\"col\":3}},{\"id\":\"hR9ZMXOlbq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vtGvZ7pTCN\",\"type\":\"card\",\"data\":{\"card_name\":\"Address Master\",\"col\":3}},{\"id\":\"jbID6wNf8O\",\"type\":\"card\",\"data\":{\"card_name\":\"Farm Related Master\",\"col\":3}},{\"id\":\"_U4mpaV4be\",\"type\":\"card\",\"data\":{\"card_name\":\"Master\",\"col\":3}},{\"id\":\"bGEWF_6Zcy\",\"type\":\"card\",\"data\":{\"card_name\":\"Formula\",\"col\":3}},{\"id\":\"rvZi4c_5cP\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Cane Registration\",\"col\":6}},{\"id\":\"w0n_a1SfGP\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Farmer Registration\",\"col\":6}}]",
+ "charts": [],
+ "content": "[{\"id\":\"UO17_Hw5xI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vendor Registration\",\"col\":3}},{\"id\":\"erKHZTVldD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cane Registration \",\"col\":3}},{\"id\":\"4faUMzZHry\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"H and T Contract\",\"col\":3}},{\"id\":\"qfA5wKIbwH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Agriculture Development\",\"col\":3}},{\"id\":\"hR9ZMXOlbq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vtGvZ7pTCN\",\"type\":\"card\",\"data\":{\"card_name\":\"Address Master\",\"col\":3}},{\"id\":\"jbID6wNf8O\",\"type\":\"card\",\"data\":{\"card_name\":\"Farm Master\",\"col\":3}},{\"id\":\"8glf4HD18P\",\"type\":\"card\",\"data\":{\"card_name\":\"Process Step\",\"col\":3}},{\"id\":\"bGEWF_6Zcy\",\"type\":\"card\",\"data\":{\"card_name\":\"Formula\",\"col\":3}}]",
  "creation": "2023-03-29 13:21:03.253684",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -20,172 +11,6 @@
  "is_hidden": 0,
  "label": "Sugar Mill",
  "links": [
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Farm Related Master",
-   "link_count": 9,
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Crop Name",
-   "link_count": 0,
-   "link_to": "Crop Name",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Crop Type",
-   "link_count": 0,
-   "link_to": "Crop Type",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Soil Type",
-   "link_count": 0,
-   "link_to": "Soil Type",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Cane Variety",
-   "link_count": 0,
-   "link_to": "Cane Variety",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Plantation System",
-   "link_count": 0,
-   "link_to": "Plantation System",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Maturity Period",
-   "link_count": 0,
-   "link_to": "Maturity Period",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Irrigation Method",
-   "link_count": 0,
-   "link_to": "Irrigation Method",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Irrigation Source",
-   "link_count": 0,
-   "link_to": "Irrigation Source",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Dose Type",
-   "link_count": 0,
-   "link_to": "Dose Type",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Address Master",
-   "link_count": 6,
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Village",
-   "link_count": 0,
-   "link_to": "Village",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Route",
-   "link_count": 0,
-   "link_to": "Route",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Circle Office",
-   "link_count": 0,
-   "link_to": "Circle Office",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Taluka",
-   "link_count": 0,
-   "link_to": "Taluka",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "District",
-   "link_count": 0,
-   "link_to": "District",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "State",
-   "link_count": 0,
-   "link_to": "State",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
   {
    "hidden": 0,
    "is_query_report": 0,
@@ -283,9 +108,223 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Address Master",
+   "link_count": 6,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Village",
+   "link_count": 0,
+   "link_to": "Village",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Route",
+   "link_count": 0,
+   "link_to": "Route",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Circle Office",
+   "link_count": 0,
+   "link_to": "Circle Office",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Taluka",
+   "link_count": 0,
+   "link_to": "Taluka",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "District",
+   "link_count": 0,
+   "link_to": "District",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "State",
+   "link_count": 0,
+   "link_to": "State",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Farm Master",
+   "link_count": 10,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crop Name",
+   "link_count": 0,
+   "link_to": "Crop Name",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crop Type",
+   "link_count": 0,
+   "link_to": "Crop Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Soil Type",
+   "link_count": 0,
+   "link_to": "Soil Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cane Variety",
+   "link_count": 0,
+   "link_to": "Cane Variety",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Plantation System",
+   "link_count": 0,
+   "link_to": "Plantation System",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maturity Period",
+   "link_count": 0,
+   "link_to": "Maturity Period",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Irrigation Method",
+   "link_count": 0,
+   "link_to": "Irrigation Method",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Irrigation Source",
+   "link_count": 0,
+   "link_to": "Irrigation Source",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Dose Type",
+   "link_count": 0,
+   "link_to": "Dose Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Seed Material Used",
+   "link_count": 0,
+   "link_to": "Seed Material Used",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Process Step",
+   "link_count": 3,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Add To Sampling",
+   "link_count": 0,
+   "link_to": "Add To Sampling",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Crop Sampling",
+   "link_count": 0,
+   "link_to": "Crop Sampling",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cane Slip",
+   "link_count": 0,
+   "link_to": "Cane Inward Slip",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-05-22 16:54:38.154399",
+ "modified": "2023-06-01 16:10:47.814361",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Sugar Mill",
@@ -307,7 +346,7 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Farmer Registration",
+   "label": "Vendor Registration",
    "link_to": "Farmer List",
    "type": "DocType"
   },

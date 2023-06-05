@@ -8,13 +8,13 @@ app_email = "21pradipjadhav@gmail.com"
 app_license = "MIT"
 
 
-doc_events = {
-    "Cane Inward Slip": {
-        "on_submit": "weight_cal.weight_cal.doctype.synctest.sync.sync_new_record",
-        "on_trash": "weight_cal.weight_cal.doctype.synctest.sync.sync_del_record",
-        "on_cancel": "weight_cal.weight_cal.doctype.synctest.sync.sync_cancel_record"
-    }
-}
+# doc_events = {
+#     "Cane Inward Slip": {
+#         "on_submit": "weight_cal.weight_cal.doctype.synctest.sync.sync_new_record",
+#         "on_trash": "weight_cal.weight_cal.doctype.synctest.sync.sync_del_record",
+#         "on_cancel": "weight_cal.weight_cal.doctype.synctest.sync.sync_cancel_record"
+#     }
+# }
 
 # Includes in <head>
 # ------------------

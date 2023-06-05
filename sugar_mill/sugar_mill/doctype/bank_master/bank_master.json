@@ -1,7 +1,6 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "field:bank_name",
+ "autoname": "autoincrement",
  "creation": "2023-03-22 16:38:55.154352",
  "default_view": "List",
  "doctype": "DocType",
@@ -19,15 +18,13 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Bank Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "branch__ifsc_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "IFSC Code",
-   "reqd": 1
+   "label": "IFSC Code"
   },
   {
    "fieldname": "section_break_1",
@@ -42,11 +39,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-25 19:23:50.348814",
+ "modified": "2023-05-24 10:09:37.853366",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Bank Master",
- "naming_rule": "By fieldname",
+ "naming_rule": "Autoincrement",
  "owner": "Administrator",
  "permissions": [
   {
@@ -62,7 +59,10 @@
    "write": 1
   }
  ],
+ "search_fields": "bank_name",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "bank_name"
 }

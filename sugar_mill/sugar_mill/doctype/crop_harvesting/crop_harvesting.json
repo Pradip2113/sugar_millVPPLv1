@@ -10,10 +10,6 @@
  "field_order": [
   "crop_sample_id",
   "id",
-  "section_break_v5ucq",
-  "brix",
-  "column_break_yrdki",
-  "no_of_pairs",
   "general_details_section",
   "season",
   "plantation_status",
@@ -76,28 +72,6 @@
    "unique": 1
   },
   {
-   "fieldname": "section_break_v5ucq",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "brix",
-   "fieldtype": "Float",
-   "label": "Brix",
-   "precision": "1",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_yrdki",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "no_of_pairs",
-   "fieldtype": "Float",
-   "label": "No. Of Pairs",
-   "precision": "1",
-   "read_only": 1
-  },
-  {
    "fieldname": "general_details_section",
    "fieldtype": "Section Break",
    "label": "General Details",
@@ -122,7 +96,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Plant Name (\u092f\u0941\u0928\u093f\u091f\u091a\u0947 \u0928\u093e\u0935)",
-   "options": "Plant",
+   "options": "Branch",
    "read_only": 1
   },
   {
@@ -440,12 +414,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "crop_sample_id",
-   "fieldtype": "Data",
-   "label": "Crop Sample id",
-   "read_only": 1
-  },
-  {
    "fetch_from": "id.route_km",
    "fieldname": "route_km",
    "fieldtype": "Data",
@@ -458,12 +426,17 @@
   {
    "fieldname": "column_break_dxlgw",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "crop_sample_id",
+   "fieldtype": "Data",
+   "label": "Crop Sample ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-05-13 12:26:20.949449",
+ "modified": "2023-05-27 11:46:44.986898",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Crop Harvesting",

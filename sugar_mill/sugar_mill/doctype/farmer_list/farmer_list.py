@@ -88,6 +88,37 @@ class FarmerList(Document):
 		frappe.delete_doc("Supplier", self.name)
 		frappe.delete_doc("Customer", self.name)
   
+	@frappe.whitelist()
+	def validation_to_bank_details(self):
+		checked_row_1 = None
+		for d in self.get("bank_details"):
+			if d.farmer and d.farmer == 1: 
+				if checked_row_1 is None:
+					checked_row_1 = d
+				else:
+					d.farmer = 0 
+     
+     
+		checked_row_2 = None
+		for d in self.get("bank_details"):
+			if d.harvester and d.harvester == 1: 
+				if checked_row_2 is None:
+					checked_row_2 = d
+				else:
+					d.harvester = 0 
+     
+     
+		checked_row_3 = None
+		for d in self.get("bank_details"):
+			if d.transporter and d.transporter == 1: 
+				if checked_row_3 is None:
+					checked_row_3 = d
+				else:
+					d.transporter = 0 
+  
+  
+	
+  
 	# @frappe.whitelist()
 	# def aadhaar_number_vali(self):
 	# 	if len(str(self.aadhaar_number)) != 12 and len(str(self.aadhaar_number)) != 0 :

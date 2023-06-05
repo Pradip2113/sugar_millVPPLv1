@@ -1,8 +1,7 @@
 {
  "actions": [],
  "allow_import": 1,
- "allow_rename": 1,
- "autoname": "format:{YY}-{#####}",
+ "autoname": "autoincrement",
  "creation": "2023-03-22 17:19:13.077546",
  "default_view": "List",
  "doctype": "DocType",
@@ -23,21 +22,22 @@
   "company_name",
   "is_kisan_card",
   "farmer_plot_details_section",
-  "survey_number",
   "area",
+  "circle_office",
   "column_break_17",
   "country",
-  "circle_office",
   "taluka",
-  "column_break_21",
   "district",
+  "column_break_21",
+  "route",
   "states",
   "data_24",
-  "route",
   "route_km",
   "data_27",
+  "survey_number",
   "crop_name",
   "crop_type",
+  "is_machine",
   "column_break_fga4p",
   "crop_variety",
   "area_acrs",
@@ -73,6 +73,7 @@
    "fieldname": "season",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Season (\u0939\u0902\u0917\u093e\u092e)",
    "options": "Season",
    "reqd": 1
@@ -104,6 +105,7 @@
   {
    "fieldname": "grower_code",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Grower Code (\u0909\u0924\u094d\u092a\u093e\u0926\u0915 \u0915\u094b\u0921)",
    "options": "Farmer List",
    "reqd": 1
@@ -112,6 +114,7 @@
    "fetch_from": "grower_code.supplier_name",
    "fieldname": "grower_name",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Grower Name (\u0909\u0924\u094d\u092a\u093e\u0926\u0915 \u0928\u093e\u0935)",
    "reqd": 1
   },
@@ -123,8 +126,8 @@
    "fetch_from": "grower_code.mobile_number",
    "fieldname": "mobile_no",
    "fieldtype": "Data",
-   "label": "Mobile No. (\u092e\u094b\u092c\u093e\u0908\u0932 \u0928\u0902\u092c\u0930)",
-   "reqd": 1
+   "hidden": 1,
+   "label": "Mobile No. (\u092e\u094b\u092c\u093e\u0908\u0932 \u0928\u0902\u092c\u0930)"
   },
   {
    "fieldname": "company_name",
@@ -205,9 +208,9 @@
    "fetch_from": "area.state",
    "fieldname": "states",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "State (\u0930\u093e\u091c\u094d\u092f) ",
-   "options": "State",
-   "reqd": 1
+   "options": "State"
   },
   {
    "fieldname": "data_27",
@@ -338,12 +341,11 @@
    "reqd": 1
   },
   {
-   "default": "Cane",
    "fieldname": "crop_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Crop Name (\u092a\u093f\u0915\u093e\u091a\u0947 \u0928\u093e\u0935)",
-   "options": "Crop Name",
-   "reqd": 1
+   "options": "Crop Name"
   },
   {
    "fieldname": "column_break_33",
@@ -384,19 +386,52 @@
    "fieldtype": "Data",
    "label": "K.m. (\u0915\u093f.\u092e\u0940.)",
    "reqd": 1
+  },
+  {
+   "fieldname": "is_machine",
+   "fieldtype": "Select",
+   "label": "Is Machine",
+   "options": "YES\nNO"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2023-05-22 11:26:29.491704",
+ "modified": "2023-05-26 18:30:44.933005",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Cane Master",
- "naming_rule": "Expression",
+ "naming_rule": "Autoincrement",
  "owner": "Administrator",
- "permissions": [],
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "grower_name",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

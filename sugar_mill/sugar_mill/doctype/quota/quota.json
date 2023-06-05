@@ -1,12 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2023-03-29 09:05:59.785541",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "reference_number",
   "reference_date",
   "column_break_3",
@@ -76,7 +78,8 @@
   {
    "fieldname": "total_quantity",
    "fieldtype": "Float",
-   "label": "Total Quantity"
+   "label": "Total Quantity",
+   "precision": "2"
   },
   {
    "fieldname": "column_break_13",
@@ -89,6 +92,7 @@
   {
    "fieldname": "total_amount",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Total Amount"
   },
   {
@@ -113,15 +117,27 @@
    "label": "Branch",
    "options": "Branch",
    "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming series",
+   "options": "RO-.###"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2023-05-17 11:14:22.607796",
+ "links": [
+  {
+   "link_doctype": "Blanket Order",
+   "link_fieldname": "quota"
+  }
+ ],
+ "modified": "2023-05-23 14:05:44.877294",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Quota",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

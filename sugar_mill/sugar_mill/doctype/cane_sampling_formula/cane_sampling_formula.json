@@ -49,10 +49,11 @@
    "label": "Maximum Pairs"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-05-22 17:00:40.874861",
+ "modified": "2023-05-24 17:23:03.552970",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Cane Sampling Formula",

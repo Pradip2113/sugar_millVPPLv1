@@ -20,3 +20,15 @@
 
 // 	}
 // });
+
+frappe.ui.form.on('Crop Sampling', {
+    brix_top: function(frm) {
+        frm.set_value('average_brix', (frm.doc.brix_top + frm.doc.brix_middle + frm.doc.brix_bottom)/3);
+    },
+    brix_middle: function(frm) {
+        frm.set_value('average_brix', (frm.doc.brix_top + frm.doc.brix_middle + frm.doc.brix_bottom)/3);
+    },
+    brix_bottom: function(frm) {
+        frm.set_value('average_brix', (frm.doc.brix_top + frm.doc.brix_middle + frm.doc.brix_bottom)/3);
+    }
+});

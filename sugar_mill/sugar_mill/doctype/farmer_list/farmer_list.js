@@ -1,52 +1,43 @@
-// Copyright (c) 2023, Quantbit and contributors
-// For license information, please see license.txt
-
-// frappe.ui.form.on('Farmer List', {
-// 	aadhaar_number: function(frm) {
-// 		frm.call({
-// 						method:'aadhaar_number_vali',//function name defined in python
-// 						doc: frm.doc, //current document
-// 					});
-
-// 	}
-// });
-
-// cur_frm.fields_dict.aadhaar_number.df.get_query = function() {
-//     return {
-//         filters: {
-//             "length": 12
-//         }
-//     };
-// };
-
-// frappe.ui.form.on('Farmer List', {
-//     aadhaar_number: function(frm) {
-//         if (frm.doc.aadhaar_number && frm.doc.aadhaar_number.length !== 12) {
-//             frappe.msgprint("The Aadhar No should be 12 digits.");
-//         }d
-//     }
-// });
-
-// frappe.ui.form.on('Farmer List', {
-//     validate: function(frm) {
-//         if (frm.doc.aadhaar_number && frm.doc.aadhaar_number.length !== 12) {
-//             frappe.msgprint("The Aadhar No should be 12 digits.");
-//             validated = false;
-//         }
-//     }
-// });
+frappe.ui.form.on('Farmer List', {
+    branch: function(frm) {
+      var branch = frm.doc.branch;
+      if (branch === 'Bedkihal') {
+        frm.set_value('naming_series', 'FA-.#');
+      } else if (branch === 'Nagpur') {
+        frm.set_value('naming_series', 'NG-.#');
+      }
+    }
+  });
+  
 
 
+frappe.ui.form.on('Bank Details', {
+	farmer: function(frm) {
+		frm.call({
+			method: 'validation_to_bank_details',//function name defined in python
+			doc: frm.doc, //current document
+		});
 
-// frappe.ui.form.on('Farmer List', {supplier_type: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
-// frappe.ui.form.on('Farmer List', {supplier_name: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
-// frappe.ui.form.on('Farmer List', {supplier_group: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
-// frappe.ui.form.on('Farmer List', {village: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
-// frappe.ui.form.on('Farmer List', {taluka: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
-// frappe.ui.form.on('Farmer List', {circle_office: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
-// frappe.ui.form.on('Farmer List', {state: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
-// frappe.ui.form.on('Farmer List', {pin_code: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
+	}
+});
+frappe.ui.form.on('Bank Details', {
+	harvester: function(frm) {
+		frm.call({
+			method: 'validation_to_bank_details',//function name defined in python
+			doc: frm.doc, //current document
+		});
 
+	}
+});
+frappe.ui.form.on('Bank Details', {
+	transporter: function(frm) {
+		frm.call({
+			method: 'validation_to_bank_details',//function name defined in python
+			doc: frm.doc, //current document
+		});
+
+	}
+});
 
 
 frappe.ui.form.on('Farmer List', {
@@ -101,3 +92,54 @@ frappe.ui.form.on('Farmer List', {
     }
 });
 
+
+
+
+// Copyright (c) 2023, Quantbit and contributors
+// For license information, please see license.txt
+
+// frappe.ui.form.on('Farmer List', {
+// 	aadhaar_number: function(frm) {
+// 		frm.call({
+// 						method:'aadhaar_number_vali',//function name defined in python
+// 						doc: frm.doc, //current document
+// 					});
+
+// 	}
+// });
+
+// cur_frm.fields_dict.aadhaar_number.df.get_query = function() {
+//     return {
+//         filters: {
+//             "length": 12
+//         }
+//     };
+// };
+
+// frappe.ui.form.on('Farmer List', {
+//     aadhaar_number: function(frm) {
+//         if (frm.doc.aadhaar_number && frm.doc.aadhaar_number.length !== 12) {
+//             frappe.msgprint("The Aadhar No should be 12 digits.");
+//         }d
+//     }
+// });
+
+// frappe.ui.form.on('Farmer List', {
+//     validate: function(frm) {
+//         if (frm.doc.aadhaar_number && frm.doc.aadhaar_number.length !== 12) {
+//             frappe.msgprint("The Aadhar No should be 12 digits.");
+//             validated = false;
+//         }
+//     }
+// });
+
+
+
+// frappe.ui.form.on('Farmer List', {supplier_type: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
+// frappe.ui.form.on('Farmer List', {supplier_name: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
+// frappe.ui.form.on('Farmer List', {supplier_group: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
+// frappe.ui.form.on('Farmer List', {village: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
+// frappe.ui.form.on('Farmer List', {taluka: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
+// frappe.ui.form.on('Farmer List', {circle_office: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
+// frappe.ui.form.on('Farmer List', {state: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});
+// frappe.ui.form.on('Farmer List', {pin_code: function(frm) {frm.call({method: 'update_docs',doc: frm.doc, });},});

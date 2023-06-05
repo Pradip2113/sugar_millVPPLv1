@@ -1,6 +1,18 @@
 // Copyright (c) 2023, Quantbit and contributors
 // For license information, please see license.txt
-
+frappe.ui.form.on("Cane Master", {
+    refresh: function(frm) {
+        // if (frm.doc.isfarmer == 1) { // Replace with the name of the checkbox field
+            frm.set_query("grower_code", function() { // Replace with the name of the link field
+                return {
+                    filters: [
+                        ["Farmer List", "is_farmer", '=', 1] // Replace with your actual filter criteria
+                    ]
+                };
+            });
+        // }
+    }
+});
 
 
 frappe.ui.form.on('Cane Master', {

@@ -27,6 +27,13 @@ frappe.ui.form.on('Vehicle Registration item', {
 		
 	}
 });
+frappe.ui.form.on('Vehicle Registration item', {
+	after_save: function(frm) {frm.call({
+			method:'slip_number',//function name defined in python
+			doc: frm.doc, //current document
+		});
+	}
+});
 
 // frappe.ui.form.on('Vehicle Registration item', {
 // 	submit_date: function(frm) {
