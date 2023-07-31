@@ -39,16 +39,20 @@
   "route_name",
   "column_break_mx4bn",
   "distance",
+  "column_break_d3btb",
+  "burn_cane",
   "section_break_zqobq",
-  "vehicle_type",
-  "column_break_ewxbv",
   "transporter_code",
   "column_break_abhrl",
   "transporter_name",
+  "column_break_ewxbv",
+  "vehicle_type",
   "column_break_3se2z",
   "harvester_code",
   "column_break_pipgl",
   "harvester_name",
+  "column_break_sipbo",
+  "gang_type",
   "section_break_hgkzi",
   "cartno",
   "column_break_4xh55",
@@ -106,23 +110,23 @@
    "fieldname": "plot_no",
    "fieldtype": "Link",
    "label": "Plot No",
-   "options": "Crop Harvesting"
+   "options": "Trip Sheet"
   },
   {
-   "fetch_from": "plot_no.survey_number",
+   "fetch_from": "plot_no.survery_no",
    "fieldname": "survery_no",
    "fieldtype": "Data",
    "label": "Survery No"
   },
   {
-   "fetch_from": "plot_no.area_acrs",
+   "fetch_from": "plot_no.area_acre",
    "fieldname": "area_acre",
    "fieldtype": "Float",
    "label": "Area Acre",
    "precision": "1"
   },
   {
-   "fetch_from": "plot_no.crop_variety",
+   "fetch_from": "plot_no.cane_variety",
    "fieldname": "cane_variety",
    "fieldtype": "Link",
    "label": "Cane Variety",
@@ -133,37 +137,41 @@
    "fieldtype": "Section Break"
   },
   {
-   "fetch_from": "plot_no.grower_code",
+   "fetch_from": "plot_no.farmer_code",
    "fieldname": "farmer_code",
    "fieldtype": "Link",
    "label": "Farmer Code",
-   "options": "Supplier"
+   "options": "Farmer List"
   },
   {
-   "fetch_from": "farmer_code.supplier_name",
+   "fetch_from": "plot_no.farmer_name",
    "fieldname": "farmer_name",
    "fieldtype": "Data",
    "label": "Farmer Name"
   },
   {
+   "fetch_from": "plot_no.transporter_code",
    "fieldname": "transporter_code",
    "fieldtype": "Link",
    "label": "Transporter Code",
    "options": "H and T Contract"
   },
   {
+   "fetch_from": "plot_no.transporter_name",
    "fieldname": "transporter_name",
    "fieldtype": "Data",
    "label": "Transporter Name"
   },
   {
+   "fetch_from": "plot_no.vehicle_type",
    "fieldname": "vehicle_type",
    "fieldtype": "Link",
-   "label": "Vehicle Type",
+   "label": "Vehicle Type ",
    "options": "Vehicle Type"
   },
   {
    "depends_on": "eval:doc.vehicle_type !='BULLOCK CART';",
+   "fetch_from": "plot_no.vehicle_number",
    "fieldname": "vehicle_number",
    "fieldtype": "Data",
    "label": "Engine Number"
@@ -173,23 +181,26 @@
    "fieldtype": "Section Break"
   },
   {
+   "fetch_from": "plot_no.harvester_code",
    "fieldname": "harvester_code",
    "fieldtype": "Link",
    "label": "Harvester Code",
    "options": "Farmer List"
   },
   {
+   "fetch_from": "plot_no.harvester_name",
    "fieldname": "harvester_name",
    "fieldtype": "Data",
    "label": "Harvester Name"
   },
   {
+   "fetch_from": "plot_no.route_name",
    "fieldname": "route_name",
    "fieldtype": "Data",
    "label": "Route Name"
   },
   {
-   "fetch_from": "plot_no.route",
+   "fetch_from": "plot_no.distance",
    "fieldname": "distance",
    "fieldtype": "Float",
    "label": "Distance",
@@ -201,6 +212,7 @@
   },
   {
    "default": "__user",
+   "fetch_from": "plot_no.slip_boy",
    "fieldname": "slip_boy",
    "fieldtype": "Link",
    "label": "Slip Boy",
@@ -266,6 +278,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "plot_no.cartno",
    "fieldname": "cartno",
    "fieldtype": "Float",
    "label": "Cart Number",
@@ -285,6 +298,7 @@
    "options": "Branch"
   },
   {
+   "fetch_from": "plot_no.rope",
    "fieldname": "rope",
    "fieldtype": "Select",
    "label": "Rope",
@@ -295,6 +309,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "plot_no.plantation_date",
    "fieldname": "plantation_date",
    "fieldtype": "Date",
    "label": "Plantation Date"
@@ -304,7 +319,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "plot_no.area",
+   "fetch_from": "plot_no.field_village",
    "fieldname": "field_village",
    "fieldtype": "Link",
    "label": "Field Village",
@@ -332,6 +347,7 @@
   },
   {
    "depends_on": "eval:doc.vehicle_type !='TRUCK' && doc.vehicle_type !='BULLOCK CART';",
+   "fetch_from": "plot_no.tolly_1",
    "fieldname": "tolly_1",
    "fieldtype": "Data",
    "label": "Tolly 1"
@@ -342,6 +358,7 @@
   },
   {
    "depends_on": "eval:doc.vehicle_type !='TRUCK' && doc.vehicle_type !='BULLOCK CART';",
+   "fetch_from": "plot_no.tolly_2",
    "fieldname": "tolly_2",
    "fieldtype": "Data",
    "label": "Tolly 2"
@@ -351,12 +368,14 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "plot_no.water_share",
    "fieldname": "water_share",
    "fieldtype": "Float",
    "label": "Water Share (%)",
    "precision": "1"
   },
   {
+   "fetch_from": "plot_no.water_supplier",
    "fieldname": "water_supplier",
    "fieldtype": "Link",
    "label": "Water Supplier Code",
@@ -367,7 +386,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "water_supplier.supplier_name",
+   "fetch_from": "plot_no.water_supplier_name",
    "fieldname": "water_supplier_name",
    "fieldtype": "Data",
    "label": "Water Supplier Name"
@@ -392,17 +411,35 @@
    "fieldtype": "Select",
    "label": "Shift",
    "options": "1st\n2nd\n3rd"
+  },
+  {
+   "fieldname": "column_break_sipbo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "plot_no.gang_type",
+   "fieldname": "gang_type",
+   "fieldtype": "Link",
+   "label": "Gang Type",
+   "options": "Gang Type"
+  },
+  {
+   "fieldname": "column_break_d3btb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "plot_no.burn_cane",
+   "fieldname": "burn_cane",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Cane Deduction Type",
+   "options": "\nMatured Cane\nBurn Cane\nUnmatured Cane",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
- "links": [
-  {
-   "link_doctype": "Cane Weight",
-   "link_fieldname": "plot_no"
-  }
- ],
- "modified": "2023-06-05 12:01:16.518947",
+ "links": [],
+ "modified": "2023-07-27 16:36:12.801722",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Cane Inward Slip",

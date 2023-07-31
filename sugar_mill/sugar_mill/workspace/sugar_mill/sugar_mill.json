@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"UO17_Hw5xI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vendor Registration\",\"col\":3}},{\"id\":\"erKHZTVldD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cane Registration \",\"col\":3}},{\"id\":\"4faUMzZHry\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"H and T Contract\",\"col\":3}},{\"id\":\"qfA5wKIbwH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Agriculture Development\",\"col\":3}},{\"id\":\"hR9ZMXOlbq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vtGvZ7pTCN\",\"type\":\"card\",\"data\":{\"card_name\":\"Address Master\",\"col\":3}},{\"id\":\"jbID6wNf8O\",\"type\":\"card\",\"data\":{\"card_name\":\"Farm Master\",\"col\":3}},{\"id\":\"8glf4HD18P\",\"type\":\"card\",\"data\":{\"card_name\":\"Process Step\",\"col\":3}},{\"id\":\"bGEWF_6Zcy\",\"type\":\"card\",\"data\":{\"card_name\":\"Formula\",\"col\":3}}]",
+ "content": "[{\"id\":\"UO17_Hw5xI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vendor Registration\",\"col\":3}},{\"id\":\"erKHZTVldD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cane Registration \",\"col\":3}},{\"id\":\"4faUMzZHry\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"H and T Contract\",\"col\":3}},{\"id\":\"qfA5wKIbwH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Agriculture Development\",\"col\":3}},{\"id\":\"hR9ZMXOlbq\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vtGvZ7pTCN\",\"type\":\"card\",\"data\":{\"card_name\":\"Master\",\"col\":3}},{\"id\":\"jbID6wNf8O\",\"type\":\"card\",\"data\":{\"card_name\":\"Farm Master\",\"col\":3}},{\"id\":\"8glf4HD18P\",\"type\":\"card\",\"data\":{\"card_name\":\"Process Step\",\"col\":3}},{\"id\":\"bGEWF_6Zcy\",\"type\":\"card\",\"data\":{\"card_name\":\"Formula\",\"col\":3}},{\"id\":\"ednssoIEsd\",\"type\":\"card\",\"data\":{\"card_name\":\"Cane Billing\",\"col\":3}},{\"id\":\"4nHWgq4JaE\",\"type\":\"card\",\"data\":{\"card_name\":\"Farmer Loan\",\"col\":4}}]",
  "creation": "2023-03-29 13:21:03.253684",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -74,8 +74,66 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Farmer Loan",
+   "link_count": 5,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Farmer Loan",
+   "link_count": 0,
+   "link_to": "Farmer Loan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Farmer Loan Application",
+   "link_count": 0,
+   "link_to": "Farmer Loan Application",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Farmer Loan Type",
+   "link_count": 0,
+   "link_to": "Farmer Loan Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Season Wise Advance Configuration",
+   "link_count": 0,
+   "link_to": "Season Wise Advance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Advance Request",
+   "link_count": 0,
+   "link_to": "Advance Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Formula",
-   "link_count": 3,
+   "link_count": 4,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -112,10 +170,40 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Address Master",
-   "link_count": 6,
+   "label": "Slip Boy Access",
+   "link_count": 0,
+   "link_to": "Slip Boy Assignment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Master",
+   "link_count": 10,
    "onboard": 0,
    "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vendor List View",
+   "link_count": 0,
+   "link_to": "Vendor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "H and T Group",
+   "link_count": 0,
+   "link_to": "H and T Group",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   },
   {
    "hidden": 0,
@@ -173,6 +261,26 @@
    "label": "State",
    "link_count": 0,
    "link_to": "State",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Bank Master",
+   "link_count": 0,
+   "link_to": "Bank Master",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Bank Branch",
+   "link_count": 0,
+   "link_to": "Bank Branch",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -268,16 +376,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Dose Type",
-   "link_count": 0,
-   "link_to": "Dose Type",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Seed Material Used",
    "link_count": 0,
    "link_to": "Seed Material Used",
@@ -288,8 +386,18 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "H&T Master",
+   "link_count": 0,
+   "link_to": "H T Master",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Process Step",
-   "link_count": 3,
+   "link_count": 6,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -316,16 +424,74 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Cane Slip",
+   "label": "Trip Sheet",
+   "link_count": 0,
+   "link_to": "Trip Sheet",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Back To Sampling",
+   "link_count": 0,
+   "link_to": "Back To Sampling",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fertilizer Material Request",
+   "link_count": 0,
+   "link_to": "Fertilizer Material Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cane Inward Slip",
    "link_count": 0,
    "link_to": "Cane Inward Slip",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cane Billing",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cane Billing",
+   "link_count": 0,
+   "link_to": "Cane Billing",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Account Priority",
+   "link_count": 0,
+   "link_to": "Branch",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-06-01 16:10:47.814361",
- "modified_by": "Administrator",
+ "modified": "2023-07-26 13:43:47.086076",
+ "modified_by": "sonali.kinikar@erpdata.in",
  "module": "Sugar Mill",
  "name": "Sugar Mill",
  "number_cards": [],

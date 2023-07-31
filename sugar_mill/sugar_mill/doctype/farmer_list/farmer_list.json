@@ -21,13 +21,12 @@
   "column_break_4wcxu",
   "mobile_number",
   "date_of_birth",
+  "existing_supplier_code",
   "column_break_yamap",
   "gender",
   "age",
   "country",
-  "column_break_rgmfj",
   "supplier_group",
-  "existing_supplier_code",
   "section_break_rfodu",
   "column_break_eeihu",
   "is_transporter",
@@ -59,6 +58,7 @@
   "consent_letter",
   "bank_detail_section",
   "bank_details",
+  "rfrd_tag",
   "tab_break_i395p",
   "section_break_lbzyz",
   "defaults_section",
@@ -124,6 +124,7 @@
    "set_only_once": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "default": "Individual",
    "fieldname": "supplier_type",
    "fieldtype": "Select",
@@ -153,14 +154,17 @@
   {
    "fieldname": "mobile_number",
    "fieldtype": "Data",
-   "label": "Mobile Number"
+   "label": "Mobile Number",
+   "length": 10
   },
   {
    "fieldname": "aadhaar_number",
    "fieldtype": "Data",
-   "label": "Aadhaar Number"
+   "label": "Aadhaar Number",
+   "length": 12
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "pan_number",
    "fieldtype": "Data",
    "label": "PAN Number",
@@ -193,6 +197,7 @@
    "read_only": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "existing_supplier_code",
    "fieldtype": "Data",
    "label": "Existing Supplier Code "
@@ -205,11 +210,7 @@
    "options": "Country"
   },
   {
-   "fieldname": "column_break_rgmfj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "Farmer",
+   "default": "Cane",
    "fieldname": "supplier_group",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -217,8 +218,7 @@
    "label": "Vendor Group",
    "oldfieldname": "supplier_type",
    "oldfieldtype": "Link",
-   "options": "Supplier Group",
-   "reqd": 1
+   "options": "Supplier Group"
   },
   {
    "fieldname": "section_break_rfodu",
@@ -290,14 +290,14 @@
    "fieldname": "village",
    "fieldtype": "Link",
    "label": "Village",
-   "options": "Village",
-   "reqd": 1
+   "options": "Village"
   },
   {
    "fieldname": "column_break_eq0al",
    "fieldtype": "Column Break"
   },
   {
+   "columns": 1,
    "fetch_from": "village.circle_office",
    "fieldname": "circle_office",
    "fieldtype": "Link",
@@ -309,6 +309,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "columns": 1,
    "fetch_from": "village.taluka",
    "fieldname": "taluka",
    "fieldtype": "Link",
@@ -351,7 +352,7 @@
   {
    "fieldname": "pan_card",
    "fieldtype": "Attach",
-   "label": "Pan Card "
+   "label": "Pan Cards"
   },
   {
    "fieldname": "column_break_mdq8w",
@@ -690,7 +691,7 @@
    "description": "Leave blank if the Supplier is blocked indefinitely",
    "fieldname": "release_date",
    "fieldtype": "Date",
-   "label": "Release Date"
+   "label": "Release Date "
   },
   {
    "fieldname": "column_break_eu2tr",
@@ -703,18 +704,26 @@
    "label": "State"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "branch",
    "fieldtype": "Link",
-   "label": "Plant",
-   "options": "Branch"
+   "label": "Plant ",
+   "options": "Branch",
+   "reqd": 1
   },
   {
    "fieldname": "tab_break_i395p",
    "fieldtype": "Tab Break",
    "hidden": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "rfrd_tag",
+   "fieldtype": "Data",
+   "ignore_user_permissions": 1,
+   "label": "RFRD Tag"
   }
  ],
- "hide_toolbar": 1,
  "icon": "fa fa-user",
  "image_field": "image",
  "links": [
@@ -724,7 +733,7 @@
    "link_fieldname": "party"
   }
  ],
- "modified": "2023-05-29 11:39:14.196014",
+ "modified": "2023-07-31 10:57:30.933091",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Farmer List",
@@ -782,13 +791,28 @@
    "read": 1,
    "report": 1,
    "role": "Accounts Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Agriculture Officer",
+   "share": 1,
+   "write": 1
   }
  ],
  "search_fields": "supplier_name,existing_supplier_code",
+ "show_name_in_global_search": 1,
  "show_title_field_in_link": 1,
  "sort_field": "existing_supplier_code",
  "sort_order": "ASC",
  "states": [],
  "title_field": "existing_supplier_code",
- "track_changes": 1
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }

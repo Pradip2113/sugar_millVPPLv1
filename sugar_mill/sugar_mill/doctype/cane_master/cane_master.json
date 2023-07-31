@@ -16,6 +16,7 @@
   "form_number",
   "column_break_7",
   "grower_code",
+  "vendor_code",
   "grower_name",
   "column_break_10",
   "mobile_no",
@@ -23,10 +24,12 @@
   "is_kisan_card",
   "farmer_plot_details_section",
   "area",
+  "column_break_k9hwf",
   "circle_office",
   "column_break_17",
   "country",
   "taluka",
+  "column_break_tfoza",
   "district",
   "column_break_21",
   "route",
@@ -44,12 +47,15 @@
   "data_31",
   "plantation_system",
   "plantattion_ratooning_date",
+  "basal_date",
   "column_break_33",
   "irrigation_source",
   "irrigation_method",
+  "development_plot",
   "column_break_yddfl",
   "soil_type",
   "seed_material",
+  "seed_type",
   "data_35",
   "road_side",
   "supervisor_name",
@@ -235,8 +241,9 @@
   },
   {
    "fieldname": "route",
-   "fieldtype": "Data",
-   "label": "Route"
+   "fieldtype": "Link",
+   "label": "Route",
+   "options": "Route"
   },
   {
    "fieldname": "crop_variety",
@@ -382,9 +389,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "route.distance_km",
    "fieldname": "route_km",
-   "fieldtype": "Data",
-   "label": "K.m. (\u0915\u093f.\u092e\u0940.)",
+   "fieldtype": "Float",
+   "label": "K.M. (\u0915\u093f.\u092e\u0940.)",
+   "precision": "1",
    "reqd": 1
   },
   {
@@ -392,12 +401,44 @@
    "fieldtype": "Select",
    "label": "Is Machine",
    "options": "YES\nNO"
+  },
+  {
+   "fieldname": "seed_type",
+   "fieldtype": "Select",
+   "label": "Seed type",
+   "options": "Regular\nFoundation"
+  },
+  {
+   "fieldname": "development_plot",
+   "fieldtype": "Select",
+   "label": "Development Plot",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "column_break_k9hwf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tfoza",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "basal_date",
+   "fieldtype": "Date",
+   "label": "Basal Date"
+  },
+  {
+   "fetch_from": "grower_code.existing_supplier_code",
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Vendor Code"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-26 18:30:44.933005",
+ "modified": "2023-07-08 11:06:24.036240",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Cane Master",

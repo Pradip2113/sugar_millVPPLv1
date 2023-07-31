@@ -4,5 +4,5 @@
 # import frappe
 from frappe.model.document import Document
 
-class ChildFarmerCaneBill(Document):
+class SeasonWiseAdvance(Document):
 	pass

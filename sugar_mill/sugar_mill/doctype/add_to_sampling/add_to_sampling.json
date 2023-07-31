@@ -16,13 +16,7 @@
   "season",
   "column_break_njlnv",
   "direct_for_harvesting",
-  "section_break_zu5qf",
   "column_break_zbh6k",
-  "column_break_6ncjh",
-  "column_break_hkdm3",
-  "column_break_ltjbf",
-  "column_break_yanuf",
-  "column_break_fviit",
   "select_all_records_for_sampling",
   "column_break_bbrqg",
   "column_break_qpl8k",
@@ -44,7 +38,9 @@
   "section_break_byg1o",
   "cane_master_data",
   "date",
-  "amended_from"
+  "amended_from",
+  "section_break_aqk1q",
+  "valid_reason"
  ],
  "fields": [
   {
@@ -131,7 +127,6 @@
    "read_only": 1
   },
   {
-   "default": "2023-24",
    "fieldname": "season",
    "fieldtype": "Link",
    "label": " Season",
@@ -201,31 +196,7 @@
    "label": "Direct For Harvesting"
   },
   {
-   "fieldname": "section_break_zu5qf",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "column_break_zbh6k",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_6ncjh",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_hkdm3",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_ltjbf",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_yanuf",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_fviit",
    "fieldtype": "Column Break"
   },
   {
@@ -233,11 +204,20 @@
    "fieldname": "select_all_records_for_sampling",
    "fieldtype": "Check",
    "label": "Select All Records for sampling"
+  },
+  {
+   "fieldname": "section_break_aqk1q",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "valid_reason",
+   "fieldtype": "Small Text",
+   "label": "Valid Reason"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-26 16:09:30.029093",
+ "modified": "2023-07-13 15:51:20.118148",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Add To Sampling",

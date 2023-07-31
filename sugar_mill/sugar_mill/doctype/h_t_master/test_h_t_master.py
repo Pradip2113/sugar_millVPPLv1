@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestCaneBilling(FrappeTestCase):
+class TestHTMaster(FrappeTestCase):
 	pass

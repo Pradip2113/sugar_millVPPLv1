@@ -5,7 +5,12 @@ import frappe
 from frappe.model.document import Document
 
 class FarmerList(Document):
-    
+	@frappe.whitelist()    
+	def fetchbranch(self):
+		for i in self.bank_details:
+			doc1=frappe.db.get_list('Bank Master',filters={'bank_name':i.bank_name,"branch":i.branch},fields={'name','bank_name','branch','ifsc_code'})
+			for d in doc1:
+				i.branchifsc_code = d.ifsc_code
 	
 	def before_save(self):
 		
@@ -82,7 +87,7 @@ class FarmerList(Document):
 			frappe.db.set_value("Address", self.name+"-Billing", "country", "India")
 			frappe.db.set_value("Address", self.name+"-Billing", "pincode", self.pin_code)
 			
-		frappe.msgprint(f"हा VENDOR, {self.name} या ID सह सेव्ह केला आहे.")
+		# frappe.msgprint(f"हा VENDOR, {self.name} या ID सह सेव्ह केला आहे.")
   
 	def on_trash(self):
 		frappe.delete_doc("Supplier", self.name)

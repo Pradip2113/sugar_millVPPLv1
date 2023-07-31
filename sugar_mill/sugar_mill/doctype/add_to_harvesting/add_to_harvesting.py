@@ -35,6 +35,7 @@ class AddtoHarvesting(Document):
                 "name",
                 "id",
                 "grower_name",
+                "grower_code",
                 "form_number",
                 "plantattion_ratooning_date",
                 "area",

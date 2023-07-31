@@ -19,7 +19,7 @@
   "season",
   "to_date",
   "section_break_9",
-  "quota_item",
+  "items",
   "section_break_11",
   "total_quantity",
   "column_break_13",
@@ -64,12 +64,6 @@
   {
    "fieldname": "section_break_9",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "quota_item",
-   "fieldtype": "Table",
-   "label": "Quota Item",
-   "options": "Quota Item"
   },
   {
    "fieldname": "section_break_11",
@@ -123,17 +117,18 @@
    "fieldtype": "Select",
    "label": "naming series",
    "options": "RO-.###"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Quota Item",
+   "options": "Quota Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [
-  {
-   "link_doctype": "Blanket Order",
-   "link_fieldname": "quota"
-  }
- ],
- "modified": "2023-05-23 14:05:44.877294",
+ "links": [],
+ "modified": "2023-06-12 14:59:27.069292",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Quota",

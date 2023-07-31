@@ -27,13 +27,44 @@ frappe.ui.form.on('Vehicle Registration item', {
 		
 	}
 });
-frappe.ui.form.on('Vehicle Registration item', {
-	after_save: function(frm) {frm.call({
-			method:'slip_number',//function name defined in python
-			doc: frm.doc, //current document
-		});
-	}
-});
+
+frappe.ui.form.on("Vehicle Registration item", "submit_date", function(frm, cdt, cdn){
+	var d = locals[cdt][cdn];   
+	frappe.model.set_value(cdt, cdn, "no_of_days", frappe.datetime.get_day_diff(d.submit_date, d.issue_date) +1);
+	refresh_field("no_of_days");
+	});
+	frappe.ui.form.on("Vehicle Registration item", "issue_date", function(frm, cdt, cdn){
+	var d = locals[cdt][cdn];   
+	frappe.model.set_value(cdt, cdn, "no_of_days", frappe.datetime.get_day_diff(d.submit_date, d.issue_date) +1 );
+	refresh_field("no_of_days");
+	});
+
+
+	frappe.ui.form.on("Vehicle Registration", {
+		refresh: function(frm) {
+			// if (frm.doc.isfarmer == 1) { // Replace with the name of the checkbox field
+				frm.set_query("transporter_code", function() { // Replace with the name of the link field
+					return {
+						filters: [
+							["Farmer List", "is_transporter", '=', 1] // Replace with your actual filter criteria
+						]
+					};
+				});
+			// }
+		}
+	});
+
+
+
+
+
+// frappe.ui.form.on('Vehicle Registration', {
+// 	after_save: function(frm) {frm.call({
+// 			method:'slip_number',//function name defined in python
+// 			doc: frm.doc, //current document
+// 		});
+// 	}
+// });
 
 // frappe.ui.form.on('Vehicle Registration item', {
 // 	submit_date: function(frm) {
@@ -152,28 +183,3 @@ frappe.ui.form.on('Vehicle Registration item', {
 	// 	// refresh_field('no_of_days');
 	// }
 	
-	frappe.ui.form.on("Vehicle Registration item", "submit_date", function(frm, cdt, cdn){
-		var d = locals[cdt][cdn];   
-		frappe.model.set_value(cdt, cdn, "no_of_days", frappe.datetime.get_day_diff(d.submit_date, d.issue_date));
-		refresh_field("no_of_days");
-		});
-		frappe.ui.form.on("Vehicle Registration item", "issue_date", function(frm, cdt, cdn){
-		var d = locals[cdt][cdn];   
-		frappe.model.set_value(cdt, cdn, "no_of_days", frappe.datetime.get_day_diff(d.submit_date, d.issue_date));
-		refresh_field("no_of_days");
-		});
-
-
-		frappe.ui.form.on("Vehicle Registration", {
-			refresh: function(frm) {
-				// if (frm.doc.isfarmer == 1) { // Replace with the name of the checkbox field
-					frm.set_query("transporter_code", function() { // Replace with the name of the link field
-						return {
-							filters: [
-								["Farmer List", "is_transporter", '=', 1] // Replace with your actual filter criteria
-							]
-						};
-					});
-				// }
-			}
-		});

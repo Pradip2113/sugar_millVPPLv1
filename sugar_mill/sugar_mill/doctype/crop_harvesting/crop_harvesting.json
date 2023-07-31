@@ -436,7 +436,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-05-27 11:46:44.986898",
+ "modified": "2023-06-11 15:26:42.065383",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Crop Harvesting",
@@ -457,8 +457,10 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "id",
  "track_changes": 1
 }
