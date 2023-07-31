@@ -1,10 +1,46 @@
+
+
+frappe.ui.form.on('Agriculture Development', {
+    refresh: function(frm) {
+            frm.set_query("cane_registration_id", function() { // Replace with the name of the link field
+                return {
+                    filters: [
+                        ["Cane Master", "season", '=', frm.doc.season] // Replace with your actual filter criteria
+                    ]
+                };
+            });
+        }
+    });
+
+
 frappe.ui.form.on('Agriculture Development', {
 	update(frm) {
 	    debugger
         frm.clear_table("agriculture_development_item")
 		frm.refresh_field("agriculture_development_item")
 	    var basel = "",preeathing ="",earth="",rainy="",ratoon1="",ratoon2="";
-		
+        var fixedarea = Number(frm.doc.development_area.toFixed(0))
+        var guntacal = (frm.doc.development_area - fixedarea)
+        var guntacalfix = Number(guntacal.toFixed(2))*1
+        var quotent = 0
+
+        if (guntacalfix >= 0.01 && guntacalfix <= 0.10) {
+            quotent = 0;
+          } else if (guntacalfix >= 0.11 && guntacalfix <= 0.20) {
+            quotent =  0.25;
+          } else if (guntacalfix >= 0.21 && guntacalfix <= 0.30) {
+            quotent =  0.50;
+          } else if (guntacalfix >= 0.31 && guntacalfix <= 0.39) {
+            quotent = 0.75;
+          } else if (guntacalfix >= 0.40) {      
+            frappe.throw( "Invalid input. The Gunta should be between 0.01 and 0.40.")
+          }
+          else{
+            quotent = 0;
+          }
+
+        var areagunta = ((fixedarea*40)+(quotent*40))/40
+        
 		var checkedB = frm.get_field('basel').get_value();
         if (checkedB) 
         {
@@ -62,6 +98,7 @@ frappe.ui.form.on('Agriculture Development', {
         {
             ratoon2 = "False";
         }
+      
        	frm.call	({
 			method:"Calculate_Fertilizer",
 			doc:frm.doc,
@@ -75,10 +112,12 @@ frappe.ui.form.on('Agriculture Development', {
                 ratoon2:ratoon2,
                 croptype : frm.doc.crop_type,
                 cropvariety : frm.doc.crop_variety,
-				area:parseFloat(frm.doc.area),
+				area:parseFloat(frm.doc.development_area),
+                areafixed:fixedarea,
+                areagunta:areagunta
 				},
 			callback: function(r) {
-					frappe.msgprint("Loaded")
+					// frappe.msgprint("Loaded")
 					frm.refresh_field('table_9');
 			}
 		})
@@ -86,14 +125,15 @@ frappe.ui.form.on('Agriculture Development', {
 	},
     refresh(frm){
         debugger
-        frm.trigger("make_delivery_challan")
+        // frm.trigger("make_delivery_challan")
+        frm.trigger("make_sales_order")
     },
-    make_delivery_challan(frm){
+    make_sales_order(frm){
         // if(frm.doc.docstatus === 1)
         // {
-            frm.add_custom_button(__("Delivery Challan"),() => {
+            frm.add_custom_button(__("Sales Order"),() => {
                 frappe.model.open_mapped_doc({
-                    method:"sugar_mill.sugar_mill.doctype.agriculture_development.agriculture_development.make_delivery_challan",
+                    method:"sugar_mill.sugar_mill.doctype.agriculture_development.agriculture_development.make_sales_order",
                     frm:frm
                 })
             },__("Make")
@@ -115,4 +155,14 @@ frappe.ui.form.on('Agriculture Development', {
     // },__("Make"))
     }
 
+});
+
+frappe.ui.form.on('Agriculture Development', {
+    development_area: function(frm) {
+        frm.call({
+            method:'area_val',//function name defined in python
+            doc: frm.doc, //current document
+        });
+        
+    }
 });

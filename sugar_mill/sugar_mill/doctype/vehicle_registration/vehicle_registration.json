@@ -1,26 +1,28 @@
 {
  "actions": [],
- "autoname": "format:{season}-{h_and_t_contract}",
+ "allow_import": 1,
+ "autoname": "format:{ht_no}",
  "creation": "2023-04-08 17:52:36.969389",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "ht_no",
   "vehicle_contract_section",
-  "h_and_t_contract",
-  "vehicle_number",
+  "season",
+  "transporter_code",
   "column_break_qhsdf",
+  "h_and_t_contract",
   "contractor_name",
+  "column_break_nkvig",
   "vehicle_type",
+  "gang_type",
   "column_break_auaib",
+  "vehicle_number",
   "total_numbers_of_vehicle",
   "trolly__1",
-  "column_break_zbxc4",
-  "transporter_code",
   "trolly_2",
-  "column_break_brh7n",
-  "season",
   "section_break_tpbov",
   "vehicle_details_tab",
   "no_of_vehicle",
@@ -38,10 +40,9 @@
  "fields": [
   {
    "fieldname": "contractor_name",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Contractor Name",
-   "options": "H and T Group"
+   "label": "Contractor Name"
   },
   {
    "fieldname": "vehicle_details_tab",
@@ -60,10 +61,6 @@
   },
   {
    "fieldname": "column_break_qhsdf",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_zbxc4",
    "fieldtype": "Column Break"
   },
   {
@@ -119,10 +116,6 @@
    "fieldtype": "Table",
    "label": "Vehicle Reporting ",
    "options": "Vehicle Reporting item"
-  },
-  {
-   "fieldname": "column_break_brh7n",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "column_break_mxpru",
@@ -181,11 +174,26 @@
    "fieldtype": "Data",
    "label": "TROLLY 2",
    "read_only": 1
+  },
+  {
+   "fieldname": "ht_no",
+   "fieldtype": "Data",
+   "label": "HT No"
+  },
+  {
+   "fieldname": "column_break_nkvig",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gang_type",
+   "fieldtype": "Link",
+   "label": "Gang Type",
+   "options": "Gang Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-22 14:52:44.846522",
+ "modified": "2023-07-28 12:57:58.001508",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Vehicle Registration",

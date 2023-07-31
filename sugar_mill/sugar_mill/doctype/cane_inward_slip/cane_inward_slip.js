@@ -16,14 +16,14 @@
 		
 // 	}
 // });
-frappe.ui.form.on('Cane Inward Slip', {
-	transporter_code: function(frm) {frm.call({
-			method:'vivo',//function name defined in python
-			doc: frm.doc, //current document
-		});
+// frappe.ui.form.on('Cane Inward Slip', {
+// 	transporter_code: function(frm) {frm.call({
+// 			method:'vivo',//function name defined in python
+// 			doc: frm.doc, //current document
+// 		});
 		
-	}
-});
+// 	}
+// });
 // Filter for Harvester on H and T Contract
 frappe.ui.form.on("Cane Inward Slip", {
     refresh: function(frm) {
@@ -31,7 +31,22 @@ frappe.ui.form.on("Cane Inward Slip", {
             frm.set_query("harvester_code", function() { // Replace with the name of the link field
                 return {
                     filters: [
-                        ["Farmer List", "is_harvester", '=', 1] // Replace with your actual filter criteria
+                        ["Farmer List", "is_harvester", '=', 1], // Replace with your actual filter criteria
+                        ["Farmer List", "workflow_state", '=', 'Approved']
+                    ]
+                };
+            });
+        // }
+    }
+});
+frappe.ui.form.on("Cane Inward Slip", {
+    refresh: function(frm) {
+        // if (frm.doc.isfarmer == 1) { // Replace with the name of the checkbox field
+            frm.set_query("transporter_code", function() { // Replace with the name of the link field
+                return {
+                    filters: [
+                        ["H and T Contract", "is_temporary_block", '=', 0],
+                        ["H and T Contract", "docstatus", '=', 1], // Replace with your actual filter criteria
                     ]
                 };
             });
@@ -57,12 +72,12 @@ frappe.ui.form.on("Cane Inward Slip", {
 //     }
 // });
 
-frappe.ui.form.on('Cane Inward Slip', {
-	onload: function(frm) {frm.call({
-			method:'slip_number',//function name defined in python
-			doc: frm.doc, //current document
-		});
-	}
-});
+// frappe.ui.form.on('Cane Inward Slip', {
+// 	onload: function(frm) {frm.call({
+// 			method:'slip_number',//function name defined in python
+// 			doc: frm.doc, //current document
+// 		});
+// 	}
+// });
 
 

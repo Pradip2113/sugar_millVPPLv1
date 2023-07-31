@@ -7,7 +7,7 @@ frappe.ui.form.on("Dose Type", "refresh", function(frm) {
         //console.log(child);
         return {    
             filters:[
-                ['item_group', '=', 'Fertilize']
+                ['item_group', '=', 'AGRICULRE FERTLZER & CHIMECAL']
             ]
         };
     };

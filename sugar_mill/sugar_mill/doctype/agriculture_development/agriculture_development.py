@@ -4,62 +4,81 @@ from frappe.model.mapper import get_mapped_doc
 
 class AgricultureDevelopment(Document):
 	@frappe.whitelist()
-	def Calculate_Fertilizer(self,doctype,basel,preeathing,earth,rainy,ratoon1,ratoon2,area,croptype,cropvariety):
+	def area_val(self):
+		if (self.area < self.development_area):
+			frappe.throw("Enter Valid Development Area......")
+	@frappe.whitelist()
+	def before_save(self):
+		if (self.area < self.development_area):
+			frappe.throw("Enter Valid Development Area......")
+  
+	@frappe.whitelist()
+	def Calculate_Fertilizer(self,doctype,basel,preeathing,earth,rainy,ratoon1,ratoon2,area,croptype,cropvariety,areafixed,areagunta):
+		# frappe.msgprint(str(areagunta))
 		data = frappe.db.sql("""
-                      select tabitem.item_code 'ItemCode',tabitem.item_name 'ItemName',tabitem.item_group 'Itemgroup',tabitem.name  , ceiling(ifnull(tabdose.quantity,0)* %(area)s) 'Baselqty',
-					  ceiling(ifnull(tabPreEarth.quantity,0) * %(area)s)  'preearthqty',ceiling(ifnull(tabEarthing.quantity,0)* %(area)s)  'earthingqty',ceiling(ifnull(tabRainy.quantity,0) * %(area)s)  'Rainyqty',
-     	              ceiling(ifnull(tabRatoon1.quantity,0) * %(area)s)  'Ratoon1qty',	ceiling(ifnull(tabRatoon2.quantity,0) * %(area)s)  'Ratoon2qty'
+                      select tabitem.item_code 'ItemCode',tabitem.item_name 'ItemName',tabitem.item_group 'Itemgroup',tabitem.name  , ceiling(ifnull(tabdose.quantity,0)* %(areagunta)s) 'Baselqty',
+					  ceiling(ifnull(tabPreEarth.quantity,0) * %(areagunta)s)  'preearthqty',ceiling(ifnull(tabEarthing.quantity,0)* %(areagunta)s)  'earthingqty',ceiling(ifnull(tabRainy.quantity,0) * %(areagunta)s)  'Rainyqty',
+     	              ceiling(ifnull(tabRatoon1.quantity,0) * %(areagunta)s)  'Ratoon1qty',	ceiling(ifnull(tabRatoon2.quantity,0) * %(areagunta)s)  'Ratoon2qty'
 					from `tabItem` tabitem 
 					left join
 					(
 						select tabDosetypeItem.fertilize_name,tabDosetypeItem.parent,tabDosetypeItem.quantity,tabDosetypeItem.uom
 						from `tabDose Type` tabDosetype
 						inner join `tabDose Type Item` tabDosetypeItem
-						on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(basel)s and  tabDosetype.crop_type = %(croptype)s  and tabDosetype.cane_variety = %(cropvariety)s
+						on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(basel)s and  tabDosetype.crop_type = %(croptype)s  
 					) tabdose on tabdose.fertilize_name = tabitem.item_code
 					left join
 					(
 						select tabDosetypeItem.fertilize_name,tabDosetypeItem.parent,tabDosetypeItem.quantity,tabDosetypeItem.uom
 						from `tabDose Type` tabDosetype
 						inner join `tabDose Type Item` tabDosetypeItem
-						on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(preearth)s and  tabDosetype.crop_type = %(croptype)s  and tabDosetype.cane_variety = %(cropvariety)s
+						on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(preearth)s and  tabDosetype.crop_type = %(croptype)s  
 					) tabPreEarth on tabPreEarth.fertilize_name = tabitem.item_code
 					left join
 						(
 						select tabDosetypeItem.fertilize_name,tabDosetypeItem.parent,tabDosetypeItem.quantity,tabDosetypeItem.uom
 					from `tabDose Type` tabDosetype
 					inner join `tabDose Type Item` tabDosetypeItem
-					on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(earthing)s and  tabDosetype.crop_type = %(croptype)s  and tabDosetype.cane_variety = %(cropvariety)s
+					on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(earthing)s and  tabDosetype.crop_type = %(croptype)s 
 						) tabEarthing on tabEarthing.fertilize_name = tabitem.item_code
 					left join
 						(
 						select tabDosetypeItem.fertilize_name,tabDosetypeItem.parent,tabDosetypeItem.quantity,tabDosetypeItem.uom
 					from `tabDose Type` tabDosetype
 					inner join `tabDose Type Item` tabDosetypeItem
-					on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(rainy)s and  tabDosetype.crop_type = %(croptype)s  and tabDosetype.cane_variety = %(cropvariety)s
+					on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(rainy)s and  tabDosetype.crop_type = %(croptype)s  
 						) tabRainy on tabRainy.fertilize_name = tabitem.item_code
                     left join
 						(
 						select tabDosetypeItem.fertilize_name,tabDosetypeItem.parent,tabDosetypeItem.quantity,tabDosetypeItem.uom
 					from `tabDose Type` tabDosetype
 					inner join `tabDose Type Item` tabDosetypeItem
-					on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(ratoon1)s and  tabDosetype.crop_type = %(croptype)s   and tabDosetype.cane_variety = %(cropvariety)s
+					on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(ratoon1)s and  tabDosetype.crop_type = %(croptype)s   
 						) tabRatoon1 on tabRatoon1.fertilize_name = tabitem.item_code
 							left join
 						(
 						select tabDosetypeItem.fertilize_name,tabDosetypeItem.parent,tabDosetypeItem.quantity,tabDosetypeItem.uom
 					from `tabDose Type` tabDosetype
 					inner join `tabDose Type Item` tabDosetypeItem
-					on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(ratoon2)s and  tabDosetype.crop_type = %(croptype)s   and tabDosetype.cane_variety = %(cropvariety)s
-						) tabRatoon2 on tabRatoon2.fertilize_name = tabitem.item_code					where tabitem.item_group = 'Fertilize' order by  tabitem.item_code
+					on tabDosetypeItem.parent =  tabDosetype.name  where dose = %(ratoon2)s and  tabDosetype.crop_type = %(croptype)s   
+						) tabRatoon2 on tabRatoon2.fertilize_name = tabitem.item_code					
+                       where tabitem.item_group = 'AGRICULRE FERTLZER & CHIMECAL'  AND (
+        IFNULL(tabdose.quantity, 0) <> 0
+        OR IFNULL(tabPreEarth.quantity, 0) <> 0
+        OR IFNULL(tabEarthing.quantity, 0) <> 0 
+        OR IFNULL(tabRainy.quantity, 0) <> 0 
+        OR IFNULL(tabRatoon1.quantity, 0) <> 0 
+        OR IFNULL(tabRatoon2.quantity, 0) <> 0 
+    ) order by  tabitem.item_code
 										""",{
-							'basel': basel	,	'preearth': preeathing,'earthing': earth, 'rainy': rainy,'area' : area ,'ratoon1' : ratoon1,'ratoon2' : ratoon2, 'croptype' : croptype, 'cropvariety' : cropvariety
+							'basel': basel	,	'preearth': preeathing,'earthing': earth, 'rainy': rainy,'area' : area ,'ratoon1' : ratoon1,'ratoon2' : ratoon2, 'croptype' : croptype,'areagunta':areagunta
 						},  as_dict=1)	
 		if data:
-			frappe.msgprint(str(data))
+			# frappe.msgprint(str(data))
 			for row in data:			
 				self.append("agriculture_development_item",{
 								"item_code":row.ItemCode,
+								"item_name":row.ItemName,
 								"basel":row.Baselqty,
 								"pre_earthing":row.preearthqty,
 								"earth":row.earthingqty,
@@ -132,9 +151,48 @@ def make_delivery_challan(source_name,target_doc = None):
 			set_missing_values,
 		}
 		)
-	frappe.msgprint("doclist")
+	# frappe.msgprint("doclist")
+	return doclist
+
+@frappe.whitelist()
+def make_sales_order(source_name,target_doc = None):
+	def set_missing_values(source,target):
+		target.run_method("set_missing_values")
+		target.run_method("calculate_taxes_and_totals")
+
+	def update_item_quantity(source,target,source_parent):
+		target.qty = source.qty
+		target.item_code = source.item_code
+
+	doclist = get_mapped_doc(
+		"Agriculture Development",
+				source_name,
+		{
+				"Agriculture Development":{
+					"doctype": "Sales Order",
+				"field_map":{
+								"supplier":"customer",
+								"plant_name":"",
+							},
+				},
+				"Agriculture Development Item":{
+				"doctype":"Sales Order Item",
+				"field_map":{
+                    "item_name":"item_name",
+                    "stock_uom":"uom",
+                    "season":"season",
+				},
+				"postprocess":update_item_quantity,
+				},
+			target_doc:
+			set_missing_values,
+		}
+		)
+	# frappe.msgprint("doclist")
 	return doclist
 
 @frappe.whitelist()
 def methodcheck(source_name,target_doc = None):
-    frappe.msgprint("hi")
+    pass
+
+

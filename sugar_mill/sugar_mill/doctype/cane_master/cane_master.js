@@ -6,7 +6,8 @@ frappe.ui.form.on("Cane Master", {
             frm.set_query("grower_code", function() { // Replace with the name of the link field
                 return {
                     filters: [
-                        ["Farmer List", "is_farmer", '=', 1] // Replace with your actual filter criteria
+                        ["Farmer List", "is_farmer", '=', 1],
+                        ["Farmer List", "workflow_state", '=', 'Approved'] // Replace with your actual filter criteria
                     ]
                 };
             });

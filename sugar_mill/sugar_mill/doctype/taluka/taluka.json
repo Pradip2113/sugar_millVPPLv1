@@ -8,7 +8,11 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "taluka"
+  "taluka",
+  "section_break_drcug",
+  "district",
+  "column_break_rcbh8",
+  "state"
  ],
  "fields": [
   {
@@ -17,11 +21,35 @@
    "fieldtype": "Data",
    "label": "Taluka",
    "unique": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_drcug",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_rcbh8",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-27 12:57:47.692821",
+ "modified": "2023-07-13 10:19:46.921297",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Taluka",

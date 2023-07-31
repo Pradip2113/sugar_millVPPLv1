@@ -10,16 +10,16 @@
  "field_order": [
   "section_break_1",
   "village",
-  "pin_code",
+  "circle_office",
   "column_break_8xths",
   "route",
   "distance_km",
   "column_break_3",
-  "circle_office",
   "taluka",
-  "column_break_6",
   "district",
-  "state"
+  "column_break_6",
+  "state",
+  "pin_code"
  ],
  "fields": [
   {
@@ -49,12 +49,14 @@
    "options": "Taluka"
   },
   {
+   "fetch_from": "taluka.district",
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
    "options": "District"
   },
   {
+   "fetch_from": "taluka.state",
    "fieldname": "state",
    "fieldtype": "Link",
    "label": "State",
@@ -85,6 +87,7 @@
    "options": "Route"
   },
   {
+   "fetch_from": "route.distance_km",
    "fieldname": "distance_km",
    "fieldtype": "Float",
    "label": "Distance KM",
@@ -93,7 +96,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-24 18:24:35.574974",
+ "modified": "2023-07-13 18:51:00.322282",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Village",

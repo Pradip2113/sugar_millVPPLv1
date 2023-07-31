@@ -1,13 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:route",
+ "autoname": "field:route_code",
  "creation": "2023-05-10 10:56:51.707184",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "village",
+  "route_code",
   "route",
   "distance_km"
  ],
@@ -15,19 +17,34 @@
   {
    "fieldname": "route",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Route",
    "unique": 1
   },
   {
    "fieldname": "distance_km",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Distance KM",
    "precision": "0"
+  },
+  {
+   "fieldname": "village",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village"
+  },
+  {
+   "fieldname": "route_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Route Code",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-15 11:00:01.630806",
+ "modified": "2023-07-28 10:17:30.691275",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Route",
@@ -47,7 +64,9 @@
    "write": 1
   }
  ],
+ "search_fields": "route",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "route"
 }

@@ -1,49 +1,99 @@
 {
  "actions": [],
- "autoname": "autoincrement",
- "creation": "2023-03-22 16:38:55.154352",
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-06-27 14:10:42.472325",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "section_break_1",
+  "naming_series",
+  "branch_code",
   "bank_name",
   "branch",
-  "branch__ifsc_code"
+  "bank_and_branch",
+  "main_branch",
+  "is_society",
+  "ifsc_code",
+  "section_break_xpwep",
+  "nationalize_bank",
+  "co_bank_account_no"
  ],
  "fields": [
   {
    "fieldname": "bank_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
    "label": "Bank Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "branch__ifsc_code",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "IFSC Code"
-  },
-  {
-   "fieldname": "section_break_1",
-   "fieldtype": "Section Break",
-   "label": "Please Enter Bank Details (\u0915\u0943\u092a\u092f\u093e \u092c\u0901\u0915 \u0924\u092a\u0936\u0940\u0932 \u092a\u094d\u0930\u0935\u093f\u0937\u094d\u091f \u0915\u0930\u093e)"
+   "options": "Bank Name"
   },
   {
    "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Branch",
+   "options": "Bank Branch"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_society",
+   "fieldtype": "Check",
+   "label": "Is Society "
+  },
+  {
+   "fieldname": "ifsc_code",
    "fieldtype": "Data",
-   "label": "Branch"
+   "in_standard_filter": 1,
+   "label": "IFSC Code"
+  },
+  {
+   "fieldname": "main_branch",
+   "fieldtype": "Link",
+   "label": "Main Branch (head Office)",
+   "options": "Bank Head Office"
+  },
+  {
+   "fieldname": "section_break_xpwep",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "co_bank_account_no",
+   "fieldtype": "Data",
+   "label": "Co. Bank Account no"
+  },
+  {
+   "fieldname": "nationalize_bank",
+   "fieldtype": "Link",
+   "label": "Nationalize Bank",
+   "options": "Bank Name"
+  },
+  {
+   "fieldname": "bank_and_branch",
+   "fieldtype": "Data",
+   "label": "Bank and branch"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming series",
+   "options": ".#"
+  },
+  {
+   "fieldname": "branch_code",
+   "fieldtype": "Data",
+   "label": "Branch Code",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-24 10:09:37.853366",
+ "modified": "2023-07-20 15:23:51.055916",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Bank Master",
- "naming_rule": "Autoincrement",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -59,10 +109,9 @@
    "write": 1
   }
  ],
- "search_fields": "bank_name",
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "bank_name"
+ "title_field": "bank_and_branch"
 }

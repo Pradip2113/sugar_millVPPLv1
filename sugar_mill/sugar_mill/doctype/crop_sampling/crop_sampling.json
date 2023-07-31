@@ -83,7 +83,7 @@
   {
    "fieldname": "id",
    "fieldtype": "Link",
-   "label": "ID",
+   "label": "Plot No",
    "options": "Cane Master"
   },
   {
@@ -503,7 +503,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-27 13:13:03.304353",
+ "modified": "2023-06-22 15:13:48.578022",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Crop Sampling",
@@ -523,8 +523,11 @@
    "write": 1
   }
  ],
+ "search_fields": "id,grower_name",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "id",
  "track_changes": 1
 }

@@ -32,11 +32,13 @@ class AddToSampling(Document):
         doc = frappe.db.get_list(
             "Cane Master",
             fields=[
+                "plant_name",
                 "grower_name",
+                "grower_code",
                 "form_number",
                 "name",
                 "plantattion_ratooning_date",
-                "area",
+                "area_acrs",
                 "circle_office",
                 "crop_variety",
                 "plantation_status",
@@ -69,14 +71,16 @@ class AddToSampling(Document):
                         {
                             "id": d.name,
                             "grower_name": d.grower_name,
+                            "grower_code":d.grower_code,
                             "form_number": d.form_number,
                             "plantattion_ratooning_date": d.plantattion_ratooning_date,
                             "plantation_status": d.plantation_status,
-                            "area": d.area,
+                             "area_acrs": d.area_acrs,
                             "circle_office": d.circle_office,
                             "crop_variety": d.crop_variety,
                             "season": d.season,
-                            "crop_type":d.crop_type
+                            "crop_type":d.crop_type,
+                            "plant_name":d.plant_name
                         },
                     )
         else:
@@ -95,14 +99,16 @@ class AddToSampling(Document):
                         {
                             "id": d.name,
                             "grower_name": d.grower_name,
+                            "grower_code":d.grower_code,
                             "form_number": d.form_number,
                             "plantattion_ratooning_date": d.plantattion_ratooning_date,
                             "plantation_status": d.plantation_status,
-                            "area": d.area,
+                            "area_acrs": d.area_acrs,
                             "circle_office": d.circle_office,
                             "crop_variety": d.crop_variety,
                             "season": d.season,
-                            "crop_type":d.crop_type
+                            "crop_type":d.crop_type,
+                            "plant_name":d.plant_name
                         },
                     )
             
@@ -124,26 +130,31 @@ class AddToSampling(Document):
     def before_save(self):
         for row in self.get("cane_master_data"):
             if row.check and not self.direct_for_harvesting:
-                doc = frappe.new_doc("Crop Sampling")
-                doc.id = row.id
-                doc.insert()
-                doc.save()
-                moc = frappe.db.get_all("Crop Sampling", fields=["name"], order_by="creation DESC", limit=1)
-                frappe.db.set_value("Crop Sampling", moc[0].name, "plantation_status","To Sampling")
-                frappe.db.set_value("Cane Master",row.id ,"plantation_status", "To Sampling")
-                
+                doc = frappe.get_all("Crop Sampling",filters={"id": row.id,},fields=[ "name"],)
+                if not doc:
+# frappe.msgprint(str(row.parent))
+                    doc = frappe.new_doc("Crop Sampling")
+                    doc.id = row.id
+                    doc.insert()
+                    doc.save()
+                    moc = frappe.db.get_all("Crop Sampling", fields=["name"], order_by="creation DESC", limit=1)
+                    frappe.db.set_value("Crop Sampling", moc[0].name, "plantation_status","To Sampling")
+                    frappe.db.set_value("Cane Master",row.id ,"plantation_status", "To Sampling")
+                    
             elif row.check and self.direct_for_harvesting:
-                doc=frappe.new_doc('Crop Harvesting')
-                doc.brix ="0"
-                doc.crop_sample_id="Without Sampling"
-                doc.no_of_pairs="0"
-                doc.id =row.id
-                doc.insert()
-                doc.save
-                moc = frappe.db.get_all("Crop Harvesting", fields=["name"], order_by="creation DESC", limit=1)
-                frappe.db.set_value("Crop Harvesting", moc[0].name, "plantation_status","To Harvesting")
-                frappe.db.set_value("Cane Master", row.id ,"plantation_status", "To Harvesting")
-                
+                doc = frappe.get_all("Crop Harvesting",filters={"id": row.id,},fields=[ "name"],)
+                if not doc:
+                    doc=frappe.new_doc('Crop Harvesting')
+                    doc.brix ="0"
+                    doc.crop_sample_id="Without Sampling"
+                    doc.no_of_pairs="0"
+                    doc.id =row.id
+                    doc.insert()
+                    doc.save
+                    moc = frappe.db.get_all("Crop Harvesting", fields=["name"], order_by="creation DESC", limit=1)
+                    frappe.db.set_value("Crop Harvesting", moc[0].name, "plantation_status","To Harvesting")
+                    frappe.db.set_value("Cane Master", row.id ,"plantation_status", "To Harvesting")
+                    
         # for i in self.get("cane_master_data"):
         #         if i.check:
         #             frappe.db.set_value("Cane Master", i.id ,"plantation_status", "To Sampling")

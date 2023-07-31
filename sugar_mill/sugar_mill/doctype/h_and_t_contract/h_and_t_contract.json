@@ -1,14 +1,17 @@
 {
  "actions": [],
- "autoname": "autoincrement",
+ "allow_import": 1,
+ "autoname": "format:{season}-{old_no}",
  "creation": "2023-03-22 17:34:13.241753",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "h_and_t_contract_section",
   "season",
+  "new_h_t_no",
+  "h_and_t_contract_section",
+  "old_no",
   "column_break_3",
   "plant",
   "column_break_znptl",
@@ -20,24 +23,22 @@
   "contract_type",
   "column_break_4yb36",
   "advance",
-  "h_and_t_group_section",
-  "h_t_code",
-  "column_break_z6ebu",
-  "column_break_t6jpf",
-  "column_break_qeruf",
-  "column_break_rjagn",
   "section_break_fosva",
   "h_and_t_group",
-  "contract_status",
+  "group_leader_name",
+  "circle",
   "column_break_13",
   "transporter_code",
   "harvester_code",
+  "village_tra",
   "column_break_16",
   "transporter_name",
   "harvester_name",
+  "is_temporary_block",
   "column_break_19",
   "transportor_commission",
   "harvester_retantion_",
+  "contract_status",
   "tds",
   "data_22",
   "vehicle_type",
@@ -54,8 +55,6 @@
   "data_38",
   "mukadam_name",
   "data_40",
-  "mobile_no",
-  "column_break_45",
   "village",
   "data_42",
   "taluka",
@@ -63,6 +62,8 @@
   "district",
   "data_44",
   "state",
+  "column_break_45",
+  "mobile_no",
   "data_46",
   "labour_details",
   "amended_from"
@@ -73,14 +74,15 @@
    "fieldtype": "Section Break"
   },
   {
-   "default": "2023-24",
    "fieldname": "season",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Season (\u0939\u0902\u0917\u093e\u092e)",
-   "options": "Season"
+   "options": "Season",
+   "reqd": 1
   },
   {
-   "default": "Bedkihal",
+   "allow_on_submit": 1,
    "fieldname": "plant",
    "fieldtype": "Link",
    "label": "Plant Name (\u092f\u0941\u0928\u093f\u091f\u091a\u0947 \u0928\u093e\u0935)",
@@ -91,6 +93,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "contract_reference",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -115,15 +118,11 @@
    "options": "Contract Type"
   },
   {
-   "fieldname": "h_and_t_group_section",
-   "fieldtype": "Section Break"
-  },
-  {
    "allow_on_submit": 1,
    "fieldname": "h_and_t_group",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "H and T Group Leader (\u090f\u091a \u0906\u0923\u093f \u091f\u0940 \u0917\u091f)",
+   "label": "Group Leader Code (\u090f\u091a \u0906\u0923\u093f \u091f\u0940 \u0917\u091f)",
    "options": "H and T Group"
   },
   {
@@ -141,6 +140,7 @@
    "allow_on_submit": 1,
    "fieldname": "transporter_code",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Transporter Code (\u0935\u093e\u0939\u0924\u0942\u0915\u0926\u093e\u0930 \u0915\u094b\u0921)",
    "options": "Farmer List"
   },
@@ -150,6 +150,7 @@
    "fetch_from": "transporter_code.supplier_name",
    "fieldname": "transporter_name",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Transporter Name (\u0935\u093e\u0939\u0924\u0942\u0915\u0926\u093e\u0930\u093e\u091a\u0947 \u0928\u093e\u0935)",
    "read_only": 1
   },
@@ -228,6 +229,7 @@
    "allow_on_submit": 1,
    "fieldname": "gang_type",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Gang Type (\u091f\u094b\u0933\u0940 \u092a\u094d\u0930\u0915\u093e\u0930)",
    "options": "Gang Type"
   },
@@ -240,16 +242,17 @@
   {
    "allow_on_submit": 1,
    "fieldname": "village",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "ignore_xss_filter": 1,
-   "label": "Village (\u0917\u093e\u0935)"
+   "label": "Village (\u0917\u093e\u0935)",
+   "options": "Village"
   },
   {
    "allow_on_submit": 1,
    "fieldname": "mobile_no",
    "fieldtype": "Data",
    "ignore_xss_filter": 1,
-   "label": "Mobile(\u092e\u094b\u092c\u093e\u0908\u0932)"
+   "label": "Mobile(\u092e\u094b\u092c\u093e\u0908\u0932) "
   },
   {
    "allow_on_submit": 1,
@@ -274,22 +277,28 @@
   },
   {
    "allow_on_submit": 1,
+   "fetch_from": "village.taluka",
    "fieldname": "taluka",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "ignore_xss_filter": 1,
-   "label": "Taluka (\u0924\u093e\u0932\u0941\u0915\u093e)"
+   "label": "Taluka (\u0924\u093e\u0932\u0941\u0915\u093e)",
+   "options": "Taluka"
   },
   {
    "allow_on_submit": 1,
+   "fetch_from": "village.district",
    "fieldname": "district",
-   "fieldtype": "Data",
-   "label": "District (\u091c\u093f\u0932\u094d\u0939\u093e)"
+   "fieldtype": "Link",
+   "label": "District (\u091c\u093f\u0932\u094d\u0939\u093e)",
+   "options": "District"
   },
   {
    "allow_on_submit": 1,
+   "fetch_from": "village.state",
    "fieldname": "state",
-   "fieldtype": "Data",
-   "label": "State"
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
   },
   {
    "fieldname": "column_break_45",
@@ -320,6 +329,7 @@
    "fieldname": "vehicle_type",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Vehicle Type",
    "options": "Vehicle Type"
   },
@@ -377,43 +387,60 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "h_t_code",
-   "fieldtype": "Link",
-   "label": "H T code",
-   "options": "H and T Contract"
-  },
-  {
    "fieldname": "section_break_fosva",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_z6ebu",
-   "fieldtype": "Column Break"
+   "fieldname": "circle",
+   "fieldtype": "Link",
+   "label": "Circle",
+   "options": "Circle Office"
   },
   {
-   "fieldname": "column_break_t6jpf",
-   "fieldtype": "Column Break"
+   "fetch_from": "h_and_t_group.leader_name",
+   "fieldname": "group_leader_name",
+   "fieldtype": "Data",
+   "label": "Group Leader Name"
   },
   {
-   "fieldname": "column_break_qeruf",
-   "fieldtype": "Column Break"
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "is_temporary_block",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Temporary Block"
   },
   {
-   "fieldname": "column_break_rjagn",
-   "fieldtype": "Column Break"
+   "fetch_from": "transporter_code.village",
+   "fieldname": "village_tra",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village"
+  },
+  {
+   "fieldname": "old_no",
+   "fieldtype": "Link",
+   "label": "H & T No",
+   "options": "H T Master"
+  },
+  {
+   "fieldname": "new_h_t_no",
+   "fieldtype": "Data",
+   "label": "New H T No"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-05-30 15:54:14.339576",
+ "modified": "2023-07-28 13:46:58.375843",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "H and T Contract",
- "naming_rule": "Autoincrement",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -427,9 +454,12 @@
    "write": 1
   }
  ],
+ "search_fields": "transporter_name",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "new_h_t_no",
  "track_changes": 1,
  "track_seen": 1,
  "track_views": 1
