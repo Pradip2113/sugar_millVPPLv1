@@ -7,18 +7,17 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "tripsheet_no",
+  "section_break_0qjm5",
   "season",
   "column_break_9npn6",
   "branch",
   "column_break_vvz7t",
   "slip_no",
-  "column_break_nl44b",
-  "cartno",
-  "column_break_4xh55",
   "plot_no",
-  "section_break_uoiyk",
+  "column_break_4xh55",
   "farmer_code",
-  "column_break_gvftv",
+  "section_break_uoiyk",
   "farmer_name",
   "column_break_yygaj",
   "field_village",
@@ -32,26 +31,34 @@
   "area_acre",
   "column_break_5daky",
   "route_name",
-  "column_break_6zdxn",
   "route",
-  "column_break_mx4bn",
+  "column_break_6zdxn",
   "distance",
-  "column_break_d3btb",
+  "column_break_mx4bn",
   "burn_cane",
+  "column_break_vk3zh",
+  "deduction",
   "section_break_zqobq",
+  "cartno",
+  "column_break_pipgl",
   "transporter_code",
   "column_break_abhrl",
-  "transporter_name",
   "transporter",
+  "transporter_name",
   "column_break_3se2z",
   "vehicle_type",
   "column_break_ewxbv",
   "harvester_code",
-  "column_break_pipgl",
   "harvester_name",
-  "column_break_sipbo",
-  "gang_type",
   "section_break_hgkzi",
+  "harvesting_code__ht",
+  "column_break_m8fj4",
+  "harvester_code_h",
+  "harvester_name_h",
+  "column_break_sprtr",
+  "gang_type",
+  "column_break_6yvrh",
+  "section_break_n1sib",
   "vehicle_number",
   "column_break_xekau",
   "tolly_1",
@@ -95,6 +102,7 @@
   {
    "fieldname": "slip_no",
    "fieldtype": "Int",
+   "hidden": 1,
    "label": "Slip No",
    "precision": "0"
   },
@@ -109,19 +117,11 @@
    "options": "Crop Harvesting"
   },
   {
-   "fieldname": "column_break_nl44b",
-   "fieldtype": "Column Break"
-  },
-  {
    "fetch_from": "plot_no.grower_code",
    "fieldname": "farmer_code",
    "fieldtype": "Link",
    "label": "Farmer Code",
    "options": "Farmer List"
-  },
-  {
-   "fieldname": "column_break_gvftv",
-   "fieldtype": "Column Break"
   },
   {
    "fetch_from": "farmer_code.supplier_name",
@@ -189,6 +189,7 @@
   {
    "fieldname": "route_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Route Name",
    "options": "Route"
   },
@@ -204,10 +205,6 @@
    "precision": "1"
   },
   {
-   "fieldname": "column_break_d3btb",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "burn_cane",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -220,10 +217,9 @@
    "fieldtype": "Section Break"
   },
   {
-   "fetch_from": "transporter_code.vehicle_type",
    "fieldname": "vehicle_type",
    "fieldtype": "Link",
-   "label": "Vehicle Type",
+   "label": "Vehicle Type ",
    "options": "Vehicle Type"
   },
   {
@@ -233,7 +229,7 @@
   {
    "fieldname": "transporter_code",
    "fieldtype": "Link",
-   "label": "Transporter Code (H&T)",
+   "label": "Transporter Code",
    "options": "H and T Contract"
   },
   {
@@ -252,6 +248,7 @@
   {
    "fieldname": "harvester_code",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Harvester Code",
    "options": "Farmer List"
   },
@@ -263,13 +260,11 @@
    "fetch_from": "harvester_code.supplier_name",
    "fieldname": "harvester_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Harvester Name"
   },
   {
-   "fieldname": "column_break_sipbo",
-   "fieldtype": "Column Break"
-  },
-  {
+   "fetch_from": "harvesting_code__ht.gang_type",
    "fieldname": "gang_type",
    "fieldtype": "Link",
    "label": "Gang Type",
@@ -406,12 +401,69 @@
    "hidden": 1,
    "label": "Transporter",
    "options": "Farmer List"
+  },
+  {
+   "default": "0",
+   "fieldname": "tripsheet_no",
+   "fieldtype": "Data",
+   "label": "Tripsheet No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_0qjm5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "harvesting_code__ht",
+   "fieldtype": "Link",
+   "label": "Harvester Code",
+   "options": "H and T Contract"
+  },
+  {
+   "fieldname": "section_break_n1sib",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_m8fj4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "harvesting_code__ht.harvester_code",
+   "fieldname": "harvester_code_h",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Harvester Code",
+   "options": "Farmer List"
+  },
+  {
+   "fetch_from": "harvesting_code__ht.harvester_name",
+   "fieldname": "harvester_name_h",
+   "fieldtype": "Data",
+   "label": "Harvester Name"
+  },
+  {
+   "fieldname": "column_break_sprtr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_6yvrh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "deduction",
+   "fieldtype": "Float",
+   "label": "Deduction  %",
+   "precision": "0"
+  },
+  {
+   "fieldname": "column_break_vk3zh",
+   "fieldtype": "Column Break"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-31 12:21:09.532470",
+ "modified": "2023-08-02 13:29:53.168014",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Trip Sheet",

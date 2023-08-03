@@ -8,7 +8,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "branch_name"
+  "branch_name",
+  "column_break_yzhn9",
+  "email",
+  "contact_number"
  ],
  "fields": [
   {
@@ -16,11 +19,25 @@
    "fieldtype": "Data",
    "label": "Branch Name",
    "unique": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Int",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "column_break_yzhn9",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-06-27 14:11:30.018389",
+ "modified": "2023-08-01 11:37:21.926974",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Bank Branch",

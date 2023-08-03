@@ -36,4 +36,13 @@ class TripSheet(Document):
 				self.gang_type = j.gang_type
 				
 				
-	
+	def before_save(self):
+		doc=frappe.db.get_list("Branch",filters={"branch" : self.branch},
+											fields=["name","trip_sheet_no"])
+		if(int(self.tripsheet_no)==int(0)):
+			self.tripsheet_no=int(doc[0].get("trip_sheet_no"))+1
+			frappe.db.set_value("Branch",doc[0].get("name"),"trip_sheet_no",self.tripsheet_no)
+
+  
+  
+  

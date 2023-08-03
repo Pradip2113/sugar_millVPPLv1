@@ -66,7 +66,8 @@
   "mobile_no",
   "data_46",
   "labour_details",
-  "amended_from"
+  "amended_from",
+  "rfid_tag"
  ],
  "fields": [
   {
@@ -427,12 +428,17 @@
    "fieldname": "new_h_t_no",
    "fieldtype": "Data",
    "label": "New H T No"
+  },
+  {
+   "fieldname": "rfid_tag",
+   "fieldtype": "Data",
+   "label": "RFID Tag"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-07-28 13:46:58.375843",
+ "modified": "2023-08-01 13:35:50.095634",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "H and T Contract",

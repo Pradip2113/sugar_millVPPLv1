@@ -16,14 +16,22 @@
 		
 // 	}
 // });
-// frappe.ui.form.on('Cane Inward Slip', {
-// 	transporter_code: function(frm) {frm.call({
-// 			method:'vivo',//function name defined in python
-// 			doc: frm.doc, //current document
-// 		});
+frappe.ui.form.on('Cane Inward Slip', {
+	plot_no: function(frm) {frm.call({
+			method:'hdata',//function name defined in python
+			doc: frm.doc, //current document
+		});
 		
-// 	}
-// });
+	}
+});
+frappe.ui.form.on('Cane Inward Slip', {
+	transporter_code: function(frm) {frm.call({
+			method:'vivo',//function name defined in python
+			doc: frm.doc, //current document
+		});
+		
+	}
+});
 // Filter for Harvester on H and T Contract
 frappe.ui.form.on("Cane Inward Slip", {
     refresh: function(frm) {
@@ -51,8 +59,44 @@ frappe.ui.form.on("Cane Inward Slip", {
                 };
             });
         // }
-    }
+    },
+    get_reading: function(frm) {
+        frm.call({
+        			method:'get_reading',//function name defined in python
+        			doc: frm.doc, //current document
+        		});
+        	}
 });
+// frappe.ui.form.on("Cane Inward Slip", {
+//     before_save(frm) {
+//         frm.call({
+//             method:'abhi',//function name defined in python
+//             doc: frm.doc, //current document
+//         });
+//     }
+// });
+// frappe.ui.form.on('Cane Inward Slip', {
+// 	show: function(frm) {
+// 		frm.call({
+// 			method:'show_data',//function name defined in python
+// 			doc: frm.doc, //current document
+// 		});
+
+// 	}
+// });
+frappe.ui.form.on('Cane Inward Slip', {
+	manually_entry_for_rfid: function (frm) {
+	  var manuallyWeight = frm.doc.manually_entry_for_rfid;
+	  var loadedWeightField = frm.get_field('rfid_tag');
+	  if (manuallyWeight) {
+		loadedWeightField.df.read_only = 0;
+	  } else {
+		loadedWeightField.df.read_only = 1;
+		frm.set_value("rfid_tag", 0.0);
+	  }
+	  loadedWeightField.refresh();
+	}
+  });
 
 // frappe.ui.form.on("Cane Inward Slip", {
 //     onload: function(frm) {

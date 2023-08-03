@@ -20,16 +20,23 @@ class HandTContract(Document):
 		moc.season = self.season
 		moc.trolly__1 = self.trolly_1
 		moc.trolly_2 = self.trolly_2
-		for i in range(int(self.total_vehicle)):
+
+		doc=frappe.db.get_list("Branch",filters={"branch" : self.plant},
+											fields=["name","cart_no"])
+		pre_cart_no=int(doc[0].get("cart_no"))
+  
+		for i in range(pre_cart_no+1,int(self.total_vehicle)+pre_cart_no+1):
 			vehicle_detail = moc.append("vehicle_details_tab", {})
+			vehicle_detail.cart_no=i
 			vehicle_detail.trolly_1 = self.trolly_1
 			vehicle_detail.trolly_2 = self.trolly_2
 			vehicle_detail.driver_name = self.transporter_code
 			vehicle_detail.season = self.season
 			vehicle_detail.h_t_cont = self.name
 			vehicle_detail.harvester_code = self.harvester_code
+			
 		moc.save()
-
+		frappe.db.set_value("Branch",doc[0].get("name"),"cart_no",int(self.total_vehicle)+pre_cart_no)
 		frappe.set_value("H T Master", self.old_no , "hts" , self.season)
   
 	@frappe.whitelist()

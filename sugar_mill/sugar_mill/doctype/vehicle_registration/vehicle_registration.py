@@ -18,6 +18,8 @@ class VehicleRegistration(Document):
 			frappe.db.set_value("H and T Contract", self.h_and_t_contract, "vehicle_type",self.vehicle_type)
 			frappe.db.set_value("H and T Contract", self.h_and_t_contract, "transporter_code",self.transporter_code)
    
+  
+   
 	# @frappe.whitelist()
 	# def mgmg(self):
 	# 	self.no_of_days = date_diff(self.submit_date, self.issue_date)

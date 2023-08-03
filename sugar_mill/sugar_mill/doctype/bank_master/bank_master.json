@@ -10,14 +10,21 @@
  "field_order": [
   "naming_series",
   "branch_code",
+  "column_break_k6jhi",
   "bank_name",
   "branch",
+  "email",
+  "column_break_v98aq",
   "bank_and_branch",
   "main_branch",
+  "contact_number",
+  "section_break_nrcfm",
   "is_society",
+  "column_break_sc7zi",
   "ifsc_code",
   "section_break_xpwep",
   "nationalize_bank",
+  "column_break_qo1a7",
   "co_bank_account_no"
  ],
  "fields": [
@@ -85,11 +92,43 @@
    "fieldtype": "Data",
    "label": "Branch Code",
    "unique": 1
+  },
+  {
+   "fieldname": "column_break_k6jhi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_v98aq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nrcfm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_sc7zi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qo1a7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "branch.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fetch_from": "branch.contact_number",
+   "fieldname": "contact_number",
+   "fieldtype": "Int",
+   "label": "Contact Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-20 15:23:51.055916",
+ "modified": "2023-08-01 12:07:01.520088",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Bank Master",

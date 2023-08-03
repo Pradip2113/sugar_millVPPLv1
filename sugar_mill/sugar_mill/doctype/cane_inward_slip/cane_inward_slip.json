@@ -37,6 +37,7 @@
   "survery_no",
   "column_break_5daky",
   "route_name",
+  "route",
   "column_break_mx4bn",
   "distance",
   "column_break_d3btb",
@@ -45,6 +46,7 @@
   "transporter_code",
   "column_break_abhrl",
   "transporter_name",
+  "transporter",
   "column_break_ewxbv",
   "vehicle_type",
   "column_break_3se2z",
@@ -72,10 +74,15 @@
   "column_break_xkkqm",
   "percentage",
   "uin",
-  "slip_boy"
+  "slip_boy",
+  "cane_inward_no",
+  "rfid_tag",
+  "get_reading",
+  "manually_entry_for_rfid"
  ],
  "fields": [
   {
+   "fetch_from": "amended_from.season",
    "fieldname": "season",
    "fieldtype": "Link",
    "label": "Season",
@@ -109,7 +116,7 @@
   {
    "fieldname": "plot_no",
    "fieldtype": "Link",
-   "label": "Plot No",
+   "label": "Trip Sheet No",
    "options": "Trip Sheet"
   },
   {
@@ -122,7 +129,7 @@
    "fetch_from": "plot_no.area_acre",
    "fieldname": "area_acre",
    "fieldtype": "Float",
-   "label": "Area Acre",
+   "label": "Area Acre ",
    "precision": "1"
   },
   {
@@ -150,14 +157,12 @@
    "label": "Farmer Name"
   },
   {
-   "fetch_from": "plot_no.transporter_code",
    "fieldname": "transporter_code",
    "fieldtype": "Link",
    "label": "Transporter Code",
    "options": "H and T Contract"
   },
   {
-   "fetch_from": "plot_no.transporter_name",
    "fieldname": "transporter_name",
    "fieldtype": "Data",
    "label": "Transporter Name"
@@ -194,13 +199,14 @@
    "label": "Harvester Name"
   },
   {
-   "fetch_from": "plot_no.route_name",
    "fieldname": "route_name",
-   "fieldtype": "Data",
-   "label": "Route Name"
+   "fieldtype": "Link",
+   "label": "Route Name",
+   "options": "Route",
+   "reqd": 1
   },
   {
-   "fetch_from": "plot_no.distance",
+   "fetch_from": "route_name.distance_km",
    "fieldname": "distance",
    "fieldtype": "Float",
    "label": "Distance",
@@ -399,6 +405,7 @@
    "default": "1",
    "fieldname": "slip_no",
    "fieldtype": "Int",
+   "hidden": 1,
    "label": "Slip No",
    "precision": "0"
   },
@@ -435,11 +442,46 @@
    "label": "Cane Deduction Type",
    "options": "\nMatured Cane\nBurn Cane\nUnmatured Cane",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "cane_inward_no",
+   "fieldtype": "Data",
+   "label": "Cane Inward No"
+  },
+  {
+   "fetch_from": "route_name.route",
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "transporter",
+   "fieldtype": "Link",
+   "label": "Transporter",
+   "options": "Farmer List"
+  },
+  {
+   "fieldname": "rfid_tag",
+   "fieldtype": "Data",
+   "label": "RFID Tag",
+   "read_only": 1
+  },
+  {
+   "fieldname": "get_reading",
+   "fieldtype": "Button",
+   "label": "Get Reading "
+  },
+  {
+   "default": "0",
+   "fieldname": "manually_entry_for_rfid",
+   "fieldtype": "Check",
+   "label": "Manually entry for RFID"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-27 16:36:12.801722",
+ "modified": "2023-08-01 20:04:10.746807",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Cane Inward Slip",

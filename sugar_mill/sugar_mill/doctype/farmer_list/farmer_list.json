@@ -58,7 +58,7 @@
   "consent_letter",
   "bank_detail_section",
   "bank_details",
-  "rfrd_tag",
+  "rfid_tag",
   "tab_break_i395p",
   "section_break_lbzyz",
   "defaults_section",
@@ -717,11 +717,9 @@
    "hidden": 1
   },
   {
-   "default": "0",
-   "fieldname": "rfrd_tag",
+   "fieldname": "rfid_tag",
    "fieldtype": "Data",
-   "ignore_user_permissions": 1,
-   "label": "RFRD Tag"
+   "label": "RFID Tag"
   }
  ],
  "icon": "fa fa-user",
@@ -733,7 +731,7 @@
    "link_fieldname": "party"
   }
  ],
- "modified": "2023-07-31 10:57:30.933091",
+ "modified": "2023-08-01 16:57:33.015505",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Farmer List",
