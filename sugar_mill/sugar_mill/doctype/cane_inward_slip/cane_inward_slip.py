@@ -57,7 +57,7 @@ class CaneInwardSlip(Document):
 	# 	elif temp3=="Connected.":
 	# 		self.rfid_tag=rfid_reading.rfid_3
 
-		
+	@frappe.whitelist()
 	def get_reading(self):
 		# Get the most recent record with 'rfid_machine' as 'RFID 2'
 		user = frappe.get_all(
@@ -94,24 +94,33 @@ class CaneInwardSlip(Document):
 			self.rfid_tag = rfid_reading.rfid_2
 		elif temp3 == "Connected." and rfid_machine == 'RFID 3':
 			self.rfid_tag = rfid_reading.rfid_3
-	
-   
-	def before_save(self):
-		doc=frappe.db.get_list("Branch",filters={"branch" : self.branch},
-											fields=["name","cane_inward_slip_no"])
-		if(int(self.cane_inward_no)==int(0)):
-			self.cane_inward_no=int(doc[0].get("cane_inward_slip_no"))+1
-			frappe.db.set_value("Branch",doc[0].get("name"),"cane_inward_slip_no",self.cane_inward_no)
-		doc1 = frappe.get_all("Farmer List", fields=["name", "rfid_tag","supplier_name"], filters={"branch": self.branch})
+
+		doc1 = frappe.get_all("H and T Contract", fields=["name","transporter_name","vehicle_type","harvester_code","harvester_name", "rfid_tag","transporter_name"], filters={"rfid_tag": self.rfid_tag})
 		found_rfid_tag = False
 		for g in doc1:
 			if g.rfid_tag == self.rfid_tag:
-				frappe.msgprint(f"RFID Tag matches with vendor {g.supplier_name}")
+				self.rfid_tag=g.rfid_tag
+				self.transporter_name=g.transporter_name
+				self.vehicle_type=g.vehicle_type
+				self.harvester_code=g.harvester_code
+				self.harvester_name=g.harvester_name
+				self.transporter_code=g.name
+				frappe.msgprint(str(g.name))
+				frappe.msgprint(f"RFID Tag matches with vendor {g.transporter_name}")
 				found_rfid_tag = True
 				break
 
 		if not found_rfid_tag:
 			frappe.throw("RFID Tag does not match with any vendor")
+	
+   
+	# def before_save(self):
+		# doc=frappe.db.get_list("Branch",filters={"branch" : self.branch},
+		# 									fields=["name","cane_inward_slip_no"])
+		# if(int(self.cane_inward_no)==int(0)):
+		# 	self.cane_inward_no=int(doc[0].get("cane_inward_slip_no"))+1
+		# 	frappe.db.set_value("Branch",doc[0].get("name"),"cane_inward_slip_no",self.cane_inward_no)
+		
 
 	# def before_save(self):
 	# 	doc=frappe.db.get_list("Branch",filters={"branch" : self.branch},

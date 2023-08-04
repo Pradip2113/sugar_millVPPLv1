@@ -31,7 +31,6 @@
   "area_acre",
   "column_break_5daky",
   "route_name",
-  "route",
   "column_break_6zdxn",
   "distance",
   "column_break_mx4bn",
@@ -189,8 +188,7 @@
   {
    "fieldname": "route_name",
    "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Route Name",
+   "label": "Route Name ",
    "options": "Route"
   },
   {
@@ -385,12 +383,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "route_name.route",
-   "fieldname": "route",
-   "fieldtype": "Data",
-   "label": "Route"
-  },
-  {
    "fieldname": "column_break_6zdxn",
    "fieldtype": "Column Break"
   },
@@ -463,7 +455,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-02 13:29:53.168014",
+ "modified": "2023-08-03 12:40:45.164553",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Trip Sheet",

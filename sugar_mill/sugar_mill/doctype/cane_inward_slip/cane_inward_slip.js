@@ -53,14 +53,13 @@ frappe.ui.form.on("Cane Inward Slip", {
             frm.set_query("transporter_code", function() { // Replace with the name of the link field
                 return {
                     filters: [
-                        ["H and T Contract", "is_temporary_block", '=', 0],
                         ["H and T Contract", "docstatus", '=', 1], // Replace with your actual filter criteria
                     ]
                 };
             });
         // }
     },
-    get_reading: function(frm) {
+    onload: function(frm) {
         frm.call({
         			method:'get_reading',//function name defined in python
         			doc: frm.doc, //current document
