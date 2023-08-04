@@ -95,16 +95,18 @@ class CaneInwardSlip(Document):
 		elif temp3 == "Connected." and rfid_machine == 'RFID 3':
 			self.rfid_tag = rfid_reading.rfid_3
 
-		doc1 = frappe.get_all("H and T Contract", fields=["name","transporter_name","vehicle_type","harvester_code","harvester_name", "rfid_tag","transporter_name"], filters={"rfid_tag": self.rfid_tag})
+		doc1 = frappe.get_all("H and T Contract", fields=["name","new_h_t_no","transporter_name","vehicle_type","harvester_code","harvester_name", "rfid_tag","transporter_name"], filters={"rfid_tag": self.rfid_tag})
 		found_rfid_tag = False
+		frappe.msgprint(str(doc1))
 		for g in doc1:
 			if g.rfid_tag == self.rfid_tag:
-				self.rfid_tag=g.rfid_tag
+				self.rfid_tag=str(g.rfid_tag)
+				self.transporter_code=g.new_h_t_no
 				self.transporter_name=g.transporter_name
 				self.vehicle_type=g.vehicle_type
 				self.harvester_code=g.harvester_code
 				self.harvester_name=g.harvester_name
-				self.transporter_code=g.name
+				
 				frappe.msgprint(str(g.name))
 				frappe.msgprint(f"RFID Tag matches with vendor {g.transporter_name}")
 				found_rfid_tag = True
