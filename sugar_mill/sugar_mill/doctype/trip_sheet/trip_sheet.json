@@ -8,6 +8,8 @@
  "engine": "InnoDB",
  "field_order": [
   "tripsheet_no",
+  "column_break_ih65q",
+  "date",
   "section_break_0qjm5",
   "season",
   "column_break_9npn6",
@@ -450,12 +452,23 @@
   {
    "fieldname": "column_break_vk3zh",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ih65q",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "label": "Date",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-03 12:40:45.164553",
+ "modified": "2023-08-04 11:44:28.400722",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Trip Sheet",

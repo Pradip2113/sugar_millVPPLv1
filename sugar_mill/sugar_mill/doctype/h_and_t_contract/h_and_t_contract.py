@@ -130,26 +130,7 @@ class HandTContract(Document):
 					)
     
     
-		# doc =frappe.db.get_list('Farmer List', filters={'name': self.harvester_code}, fields={'name'})
-		# for index in doc:
-		# 	chart_table = frappe.get_all("Bank Details", filters={"parent": index['name']},fields=["farmer","bank_name","harvester","transporter","branch","branchifsc_code","account_number","status","is_active","created_datename"])
-		# 	for d in chart_table:
-		# 		self.append(
-		# 			"bank_details",
-		# 			{
-		# 				"farmer": d.farmer,
-		# 				"harvester": d.harvester,
-		# 				"transporter": d.transporter,
-		# 				"branch": d.branch,
-		# 				"bank_name": d.bank_name,
-		# 				"branchifsc_code": d.branchifsc_code,
-		# 				"account_number": d.account_number,
-		# 				"status": d.status,
-		# 				"is_active": d.is_active,
-		# 				"created_datename": d.created_datename
-		# 			}
-		# 		)
-
+		
 
 				
 

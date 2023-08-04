@@ -64,17 +64,15 @@
   "state",
   "column_break_45",
   "mobile_no",
+  "section_break_hwq5c",
+  "contract_surety",
+  "section_break_uezvb",
+  "bank_details",
   "data_46",
   "labour_details",
   "section_break_s9dsl",
-  "aggregated_code",
-  "column_break_fbo3y",
-  "aggregated_name",
-  "column_break_2t48w",
   "amended_from",
-  "rfid_tag",
-  "section_break_uezvb",
-  "bank_details"
+  "rfid_tag"
  ],
  "fields": [
   {
@@ -457,30 +455,20 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "aggregated_code",
-   "fieldtype": "Link",
-   "label": "Aggregated Code",
-   "options": "Farmer List"
+   "fieldname": "section_break_hwq5c",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_fbo3y",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "aggregated_code.supplier_name",
-   "fieldname": "aggregated_name",
-   "fieldtype": "Data",
-   "label": "Aggregated Name"
-  },
-  {
-   "fieldname": "column_break_2t48w",
-   "fieldtype": "Column Break"
+   "fieldname": "contract_surety",
+   "fieldtype": "Table",
+   "label": "Contract Surety",
+   "options": "Contract Surety"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-08-03 19:42:21.226307",
+ "modified": "2023-08-04 11:27:19.821432",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "H and T Contract",
