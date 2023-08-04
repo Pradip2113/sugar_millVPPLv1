@@ -204,8 +204,7 @@
    "fieldname": "route_name",
    "fieldtype": "Link",
    "label": "Route Name",
-   "options": "Route",
-   "reqd": 1
+   "options": "Route"
   },
   {
    "fetch_from": "route_name.distance_km",
@@ -445,8 +444,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Cane Deduction Type",
-   "options": "\nMatured Cane\nBurn Cane\nUnmatured Cane",
-   "reqd": 1
+   "options": "\nMatured Cane\nBurn Cane\nUnmatured Cane"
   },
   {
    "default": "0",
@@ -492,7 +490,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-04 16:14:11.280276",
+ "modified": "2023-08-04 18:11:30.254811",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Cane Inward Slip",

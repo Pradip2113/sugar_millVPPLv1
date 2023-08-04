@@ -36,7 +36,10 @@ class CaneInwardSlip(Document):
 		for n in doc1:
 			n.token_number = n.token_number + 1
 			frappe.db.set_value("Branch", n.name, "token_number",n.token_number)
-
+   
+   
+	
+  
 	# @frappe.whitelist()
 	# def get_reading(self):
 	# 	user=  frappe.get_all("RFID Master Setting",
@@ -198,7 +201,7 @@ class CaneInwardSlip(Document):
 	#To get data on tripsheet 
 	@frappe.whitelist()
 	def get_tripsheet_info(self):
-		doc = frappe.get_all('Trip Sheet', filters={'transporter_code': self.transporter_code,'branch':self.branch,'season':self.season }, fields={'name','farmer_code','farmer_name','area_acre','cane_variety','burn_cane'})
+		doc = frappe.get_all('Trip Sheet', filters={'can_slip_flag':0,'transporter_code': self.transporter_code,'branch':self.branch,'season':self.season }, fields={'name','farmer_code','farmer_name','area_acre','cane_variety','burn_cane'})
 		for d in doc:
 					self.append(
 						"pending_slip",
@@ -212,5 +215,13 @@ class CaneInwardSlip(Document):
 								}
 					)
 		
+	@frappe.whitelist()
+	def before_save(self):
+		for i in self.get("pending_slip"):
+			frappe.db.set_value("Trip Sheet",i.plot_no,"can_slip_flag",1)
+	@frappe.whitelist()
+	def on_trash(self):
+		for i in self.get("pending_slip"):
+			frappe.db.set_value("Trip Sheet",i.plot_no,"can_slip_flag",0)
 		
 

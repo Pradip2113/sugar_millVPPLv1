@@ -113,15 +113,3 @@ frappe.ui.form.on('H and T Contract', {
 		
 	}
 });
-
-frappe.ui.form.on('H and T Contract', {
-	harvester_code: function(frm) {
-        frm.clear_table("bank_details")
-		frm.refresh_field('bank_details')
-		frm.call({
-			method:'get_bank_details',//function name defined in python
-			doc: frm.doc, //current document
-		});
-		
-	}
-});
