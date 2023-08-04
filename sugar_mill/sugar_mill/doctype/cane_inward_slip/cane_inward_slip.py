@@ -71,7 +71,7 @@ class CaneInwardSlip(Document):
 		)
 
 		if not user:
-			frappe.msgprint("No recent record found  for the current user.")
+			frappe.msgprint("No any RFID is found for the current user.")
 			return
 
 		# Access the 'rfid_machine' and 'date' fields from the recent record
@@ -100,14 +100,12 @@ class CaneInwardSlip(Document):
 		frappe.msgprint(str(doc1))
 		for g in doc1:
 			if g.rfid_tag == self.rfid_tag:
-				self.rfid_tag=str(g.rfid_tag)
+				self.rfid_tag=g.rfid_tag
 				self.transporter_code=g.new_h_t_no
 				self.transporter_name=g.transporter_name
 				self.vehicle_type=g.vehicle_type
 				self.harvester_code=g.harvester_code
 				self.harvester_name=g.harvester_name
-				
-				frappe.msgprint(str(g.name))
 				frappe.msgprint(f"RFID Tag matches with vendor {g.transporter_name}")
 				found_rfid_tag = True
 				break
@@ -197,7 +195,22 @@ class CaneInwardSlip(Document):
 	# 	return str(new_slip)
 
 
-
-			
-				
+	#To get data on tripsheet 
+	@frappe.whitelist()
+	def get_tripsheet_info(self):
+		doc = frappe.get_all('Trip Sheet', filters={'transporter_code': self.transporter_code,'branch':self.branch,'season':self.season }, fields={'name','farmer_code','farmer_name','area_acre','cane_variety','burn_cane'})
+		for d in doc:
+					self.append(
+						"pending_slip",
+								{
+									'plot_no':str(d.name),
+									'farmer_code':d.farmer_code,
+									'farmer_name':d.farmer_name,
+									'area_acre':d.area_acre,
+									'cane_variety':d.cane_variety,
+									'burn_cane':d.burn_cane
+								}
+					)
+		
+		
 

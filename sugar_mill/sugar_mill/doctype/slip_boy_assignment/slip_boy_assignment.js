@@ -13,3 +13,10 @@ frappe.ui.form.on('Slip Boy Assignment', {
         }
     });
 
+
+    frappe.ui.form.on('Child Slip Boy Access', {
+        before_delete(frm) {
+            frappe.msgprint("jfdshjskljkldsdsjkdsfjkl")
+        }
+    })
+

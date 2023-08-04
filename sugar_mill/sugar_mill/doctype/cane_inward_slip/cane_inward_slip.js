@@ -115,12 +115,12 @@ frappe.ui.form.on('Cane Inward Slip', {
 //     }
 // });
 
-// frappe.ui.form.on('Cane Inward Slip', {
-// 	onload: function(frm) {frm.call({
-// 			method:'slip_number',//function name defined in python
-// 			doc: frm.doc, //current document
-// 		});
-// 	}
-// });
+frappe.ui.form.on('Cane Inward Slip', {
+	transporter_code: function(frm) {frm.call({
+			method:'get_tripsheet_info',//function name defined in python
+			doc: frm.doc, //current document
+		});
+	}
+});
 
 
