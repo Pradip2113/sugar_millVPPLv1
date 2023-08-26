@@ -10,7 +10,7 @@ class FarmerList(Document):
 		for i in self.bank_details:
 			doc1=frappe.db.get_list('Bank Master',filters={'bank_name':i.bank_name,"branch":i.branch},fields={'name','bank_name','branch','ifsc_code'})
 			for d in doc1:
-				i.branchifsc_code = d.ifsc_code
+				i.branchifsc_code = d.ifsc_code #jjbjjjj
 	
 	def before_save(self):
 		aadhar_list = frappe.get_all('Farmer List', filters={'aadhaar_number': self.aadhaar_number, 'name': ['!=', self.name]},fields ={'name','supplier_name'})
