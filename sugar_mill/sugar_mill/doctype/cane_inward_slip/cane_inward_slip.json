@@ -79,7 +79,9 @@
   "cane_inward_no",
   "rfid_tag",
   "section_break_sw406",
-  "pending_slip"
+  "pending_slip",
+  "ip_of_indicator",
+  "port_no_of_indicator"
  ],
  "fields": [
   {
@@ -486,11 +488,25 @@
    "fieldtype": "Table",
    "label": "Pending Slip",
    "options": "Cane Inward Slip Item"
+  },
+  {
+   "fieldname": "ip_of_indicator",
+   "fieldtype": "Data",
+   "label": "IP of Indicator"
+  },
+  {
+   "fieldname": "port_no_of_indicator",
+   "fieldtype": "Data",
+   "label": "PORT no of indicator"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
+<<<<<<< HEAD
  "modified": "2023-08-04 18:11:30.254811",
+=======
+ "modified": "2023-08-05 14:03:44.497507",
+>>>>>>> 6c00f4d (after Trip)
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Cane Inward Slip",

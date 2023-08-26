@@ -1,13 +1,23 @@
 # Copyright (c) 2023, Quantbit and contributors
 # For license information, please see license.txt
 
+import struct
+import time
 import frappe
 from frappe.model.document import Document
 import string    
 import random
+import socket
 
 
 class CaneInwardSlip(Document):
+# Sync Data
+	def before_save(self):
+		if self.branch == "Nagpur":
+			ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = 10))  
+			self.uin='CIS-N-'+ran
+			self.name=self.uin
+#---------------------------------
 	@frappe.whitelist()
 	def hdata(self):
 		doc = frappe.get_all('Trip Sheet', filters={'name': self.plot_no}, fields={'name','transporter_code','transporter_name','transporter','route_name','route','distance'})
@@ -18,6 +28,61 @@ class CaneInwardSlip(Document):
 			self.route_name = s.route_name
 			self.route = s.route
 			self.distance = s.distance
+		
+ 
+	def send_to_data(self,data):
+		# ip = str(self.ip_of_indicator)
+		server_ip =  self.ip_of_indicator
+  # Change this to the server's IP address
+		server_port = int(self.port_no_of_indicator)      # Change this to the server's port number
+
+		# Create a socket object
+		client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+		try:
+			# Connect to the server
+			client_socket.connect((server_ip, server_port))
+			frappe.msgprint(f"Connected to {server_ip}:{server_port}")
+
+			# Send numbers one by one
+
+			# for num in numbers:
+				# Send the number as a string
+
+			num_str = f"{data}\r\n"
+			client_socket.send(num_str.encode('utf-8'))
+			frappe.msgprint(f"Sent: {num_str}")
+
+			# Wait for a short time before sending the next number
+				# time.sleep(1)
+			# frappe.msgprint("All numbers sent.")
+		except ConnectionRefusedError:
+			frappe.msgprint("Connection refused. Make sure the server is running.")
+		except Exception as e:
+			frappe.msgprint(f"An error occurred: {e}")
+		finally:
+			client_socket.close()
+			frappe.msgprint("Connection closed.")
+
+		# port = int(self.port_no_of_indicator)
+		# s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+		# s.connect((ip,port))
+		# s.accept()
+		# # s.setblocking(0)
+		# frappe.msgprint('socket connected')
+		# # data=4
+		# data = str(data).encode()
+		# # encoded_data=struct.pack('>H',len(data))+data
+		# s.sendall(data)
+		# frappe.msgprint(str(data))
+		# rescdata=s.recv(1024)
+		# frappe.msgprint(str(rescdata))
+		# # frappe.msgprint(str(struct.pack('>H',len(encoded_data)) + encoded_data))
+		# time.sleep(2)
+		# s.close()
+	
+
+
 	@frappe.whitelist()
 	def vivo(self):
 		doc = frappe.get_all('H and T Contract', filters={'name': self.transporter_code}, fields={'name','vehicle_no','transporter_code','harvester_code','transporter_name','harvester_name','trolly_1','trolly_2','total_vehicle','vehicle_type'})
@@ -36,10 +101,7 @@ class CaneInwardSlip(Document):
 		for n in doc1:
 			n.token_number = n.token_number + 1
 			frappe.db.set_value("Branch", n.name, "token_number",n.token_number)
-   
-   
-	
-  
+			self.send_to_data(2)
 	# @frappe.whitelist()
 	# def get_reading(self):
 	# 	user=  frappe.get_all("RFID Master Setting",
@@ -72,7 +134,6 @@ class CaneInwardSlip(Document):
 			order_by='date desc',
 			limit=1
 		)
-
 		if not user:
 			frappe.msgprint("No any RFID is found for the current user.")
 			return
@@ -89,18 +150,25 @@ class CaneInwardSlip(Document):
 
 		# Display the 'rfid_machine' value and its status
 		frappe.msgprint(f"RFID Machine: {rfid_machine}")
-
+		
 		# Assign the appropriate value to the 'rfid_tag' variable based on the status of RFID readers
 		if temp1 == "Connected." and rfid_machine == 'RFID 1':
 			self.rfid_tag = rfid_reading.rfid_1
+			self.ip_of_indicator=rfid_reading.ip_of_indicator1
+			self.port_no_of_indicator=rfid_reading.port_number_of_indicator1
 		elif temp2 == "Connected." and rfid_machine == 'RFID 2':
 			self.rfid_tag = rfid_reading.rfid_2
+			self.ip_of_indicator=rfid_reading.ip_of_indicator2
+			self.port_no_of_indicator=rfid_reading.port_number_of_indicator2
+			# frappe.msgprint(str(self.port_no_of_indicator))
 		elif temp3 == "Connected." and rfid_machine == 'RFID 3':
 			self.rfid_tag = rfid_reading.rfid_3
+			self.ip_of_indicator=rfid_reading.ip_of_indicator3
+			self.port_no_of_indicator=rfid_reading.port_number_of_indicator3
 
+		
 		doc1 = frappe.get_all("H and T Contract", fields=["name","new_h_t_no","transporter_name","vehicle_type","harvester_code","harvester_name", "rfid_tag","transporter_name"], filters={"rfid_tag": self.rfid_tag})
 		found_rfid_tag = False
-		frappe.msgprint(str(doc1))
 		for g in doc1:
 			if g.rfid_tag == self.rfid_tag:
 				self.rfid_tag=g.rfid_tag
@@ -109,13 +177,15 @@ class CaneInwardSlip(Document):
 				self.vehicle_type=g.vehicle_type
 				self.harvester_code=g.harvester_code
 				self.harvester_name=g.harvester_name
-				frappe.msgprint(f"RFID Tag matches with vendor {g.transporter_name}")
+				frappe.msgprint(f"RFID Tag matches with vendor ")
 				found_rfid_tag = True
+				self.send_to_data(3)
 				break
 
 		if not found_rfid_tag:
 			frappe.throw("RFID Tag does not match with any vendor")
-	
+			self.send_to_data(4)
+		
    
 	# def before_save(self):
 		# doc=frappe.db.get_list("Branch",filters={"branch" : self.branch},
@@ -214,11 +284,11 @@ class CaneInwardSlip(Document):
 									'burn_cane':d.burn_cane
 								}
 					)
-		
 	@frappe.whitelist()
 	def before_save(self):
 		for i in self.get("pending_slip"):
 			frappe.db.set_value("Trip Sheet",i.plot_no,"can_slip_flag",1)
+		# self.send_to_data(4)
 	@frappe.whitelist()
 	def on_trash(self):
 		for i in self.get("pending_slip"):

@@ -1,20 +1,21 @@
 {
  "actions": [],
- "autoname": "naming_series:",
+ "autoname": "format:{doc_name}",
  "creation": "2023-03-22 17:08:15.729327",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "naming_series",
+  "doc_name",
   "section_break_1",
-  "leader_name",
+  "branch",
   "column_break_2",
-  "mobile",
+  "leader_name",
   "column_break_4",
-  "village",
+  "mobile",
   "column_break_6",
+  "village",
   "pincode"
  ],
  "fields": [
@@ -58,18 +59,27 @@
    "label": "H and T Group Details"
   },
   {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "naming_series"
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Plant",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doc_name",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Doc Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-06-19 18:42:49.768034",
+ "modified": "2023-08-18 15:57:35.411355",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "H and T Group",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

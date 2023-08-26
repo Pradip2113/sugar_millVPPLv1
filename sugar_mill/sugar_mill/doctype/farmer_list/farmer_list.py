@@ -13,14 +13,17 @@ class FarmerList(Document):
 				i.branchifsc_code = d.ifsc_code
 	
 	def before_save(self):
-		
+		aadhar_list = frappe.get_all('Farmer List', filters={'aadhaar_number': self.aadhaar_number, 'name': ['!=', self.name]},fields ={'name','supplier_name'})
+		if aadhar_list:
+			frappe.throw(f"Aadhar number must be unique aadhar Exist for vendor '{aadhar_list[0].supplier_name}'")
+  
 		existing_supplier = frappe.get_all('Supplier', filters={'name': self.name})
 		if len(existing_supplier)==0:
 			m=frappe.new_doc('Supplier')
 			m.supplier_type=self.supplier_type
 			m.supplier_name=self.supplier_name
 			m.supplier_group=self.supplier_group
-			
+			m.branch = self.branch
 			m.insert()
 			doc = frappe.db.get_all("Supplier", fields=["name"], order_by="creation DESC", limit=1)
 			frappe.db.set_value("Supplier", doc[0].name, "name", self.name)
@@ -29,6 +32,8 @@ class FarmerList(Document):
 			k.customer_type=self.supplier_type
 			k.customer_name=self.supplier_name
 			k.customer_group=self.supplier_group
+			k.branch = self.branch
+   
 			k.territory="India"
 			k.insert()
 			moc = frappe.db.get_all("Customer", fields=["name"], order_by="creation DESC", limit=1)
@@ -73,10 +78,12 @@ class FarmerList(Document):
 			frappe.db.set_value("Supplier", self.name, "supplier_type", self.supplier_type)
 			frappe.db.set_value("Supplier", self.name, "supplier_name", self.supplier_name)
 			frappe.db.set_value("Supplier", self.name, "supplier_group", self.supplier_group)
+			frappe.db.set_value("Supplier", self.name, "branch", self.branch)
 			frappe.db.set_value("Supplier", self.name, "primary_address", f"{self.village}\n{self.taluka}\n{self.circle_office}\n{self.state}\n India")
    
 			frappe.db.set_value("Customer", self.name, "customer_name", self.supplier_name)
 			frappe.db.set_value("Customer", self.name, "customer_group", self.supplier_group)
+			frappe.db.set_value("Customer", self.name, "branch", self.branch)
 			frappe.db.set_value("Customer", self.name, "territory", "India")
 			frappe.db.set_value("Customer", self.name, "primary_address", f"{self.village}\n{self.taluka}\n{self.circle_office}\n{self.state}\n India") 
    

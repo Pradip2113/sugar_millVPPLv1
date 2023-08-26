@@ -51,7 +51,6 @@ frappe.ui.form.on('Vendor', {
 		for (var i = 0; i < data.length; i++) {
 		  var supplierName = data[i].supplier_name || '';
 		  var recordId = data[i].name || '';
-  
 		  help_content += "<tr>";
 		  help_content += `<td>${data[i].existing_supplier_code}</td>`;
 		  help_content += `<td><a href="./farmer-list/${recordId}">${supplierName}</a></td>`;

@@ -6,3 +6,27 @@ frappe.ui.form.on('H and T Group', {
 
 	// }
 });
+
+
+
+frappe.ui.form.on('H and T Group', {
+	branch: function(frm) {
+		frm.call({
+			method: 'update_value',//function name defined in python
+			doc: frm.doc, //current document
+		});
+
+	}
+});
+
+
+frappe.ui.form.on('H and T Group', {
+    refresh: function(frm) {
+        $('.layout-side-section').hide();
+        $('.layout-main-section-wrapper').css('margin-left', '0');
+    }
+});
+
+
+
+

@@ -31,10 +31,12 @@ frappe.ui.form.on('Cane Master', {
 frappe.ui.form.on('Cane Master', {
 	onload(frm) {
 	    function onPositionRecieved(position){
-	        var longitude= position.coords.longitude;
-	        var latitude= position.coords.latitude;
-	        frm.set_value('longitude',longitude);
-	        frm.set_value('latitude',latitude);
+            var longitude= position.coords.longitude;
+            var latitude= position.coords.latitude;
+	        // var longitude= frm.doc.longitude;
+	        // var latitude= frm.doc.latitude;
+	        // frm.set_value('longitude',longitude);
+	        // frm.set_value('latitude',latitude);
 	        console.log(longitude);
 	        console.log(latitude);
 	        fetch('https://api.opencagedata.com/geocode/v1/json?q='+latitude+'+'+longitude+'&key=de1bf3be66b546b89645e500ec3a3a28')

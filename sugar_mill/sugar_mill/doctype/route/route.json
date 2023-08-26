@@ -8,10 +8,25 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "village",
   "route_code",
+  "column_break_51vsi",
   "route",
-  "distance_km"
+  "column_break_zt4an",
+  "distance_km",
+  "column_break_w4wat",
+  "column_break_i81ya",
+  "section_break_auueq",
+  "village",
+  "column_break_e6eyx",
+  "circle_office",
+  "column_break_ttecm",
+  "taluka",
+  "column_break_t7ohm",
+  "district",
+  "column_break_godbc",
+  "state",
+  "column_break_19ubp",
+  "pin_code"
  ],
  "fields": [
   {
@@ -40,11 +55,80 @@
    "in_list_view": 1,
    "label": "Route Code",
    "unique": 1
+  },
+  {
+   "fieldname": "column_break_51vsi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zt4an",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_w4wat",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_i81ya",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_auueq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_e6eyx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "circle_office",
+   "fieldtype": "Link",
+   "label": "Circle Office",
+   "options": "Circle Office"
+  },
+  {
+   "fieldname": "column_break_ttecm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "taluka",
+   "fieldtype": "Link",
+   "label": "Taluka",
+   "options": "Taluka"
+  },
+  {
+   "fieldname": "column_break_t7ohm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "column_break_godbc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "column_break_19ubp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pin_code",
+   "fieldtype": "Data",
+   "label": "Pin Code"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-04 11:34:43.991076",
+ "modified": "2023-08-23 18:51:40.148484",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Route",

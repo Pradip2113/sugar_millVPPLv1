@@ -8,6 +8,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "section_break_1",
   "village",
   "circle_office",
@@ -92,11 +93,17 @@
    "fieldtype": "Float",
    "label": "Distance KM",
    "precision": "1"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming series",
+   "options": ".#"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-13 18:51:00.322282",
+ "modified": "2023-08-24 12:07:23.328065",
  "modified_by": "Administrator",
  "module": "Sugar Mill",
  "name": "Village",
