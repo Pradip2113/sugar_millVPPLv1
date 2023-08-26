@@ -12,7 +12,6 @@ class RetailSale(Document):
 			for d in doc1:
 				doc2=frappe.db.get_list('Share Transfer',filters={'to_shareholder':d.name},fields={'name','to_shareholder','no_of_shares'})
 				for m in doc2:
-					# frappe.msgprint(str(m.no_of_shares))
 					self.no_of_shares = m.no_of_shares
      
 	@frappe.whitelist()
